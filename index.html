@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Shower Presentation Engine</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-16x10.css">
+
+	<style>
+		.center {
+			text-align: center;
+		}
+	</style>
+</head>
+<body class="shower list">
+
+	<header class="caption">
+		<h1>Герои в браузере</h1>
+		<p>Долго, сложно и невыносимо интересно.</p>
+	</header>
+
+	<section class="slide" id="cover">
+		<h2>Герои в браузере</h2>
+		<p>Долго, сложно и невыносимо интересно.</p>
+		<figure>
+			<img class="cover" src="pictures/cover.png" alt="">
+		</figure>
+		<style>
+			#cover {
+				background: #000;
+			}
+			#cover h2 {
+				margin: 145px 0 0;
+				color: #fff;
+				text-align: center;
+				font-size: 70px;
+				text-shadow: 0 0 30px #000;
+			}
+			#cover p {
+				margin:10px 0 0;
+				text-align:center;
+				color:#FFF;
+				font-style:italic;
+				font-size:20px;
+				text-shadow: 0 0 30px #000;
+			}
+			#cover p a {
+				color:#FFF;
+			}
+		</style>
+	</section>
+
+	<section class="slide" id="beginning">
+		<!--<h2 class="shout shrink">...</h2>-->
+		<figure>
+			<img class="cover" src="pictures/begining.png" alt="">
+		</figure>
+		<!--<ol>-->
+			<!--<li>Built on HTML, CSS and vanilla JavaScript</li>-->
+			<!--<li>Works in all modern browsers</li>-->
+			<!--<li>Themes are separated from engine</li>-->
+			<!--<li>Modular and extensible</li>-->
+			<!--<li>Fully keyboard accessible</li>-->
+			<!--<li>Printable to PDF</li>-->
+		<!--</ol>-->
+		<!--<p class="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>-->
+
+		<style>
+			#beginning h2 {
+				color: #fff;
+				text-shadow: 0 0 30px #000;
+			}
+		</style>
+	</section>
+
+	<section class="slide">
+		<h2>Игра мечты, первая игра</h2>
+		<ol>
+			<li>Большинство делает игру "три-в-ряд"</li>
+			<li>Тут немного про портрет типичного игродела</li>
+		</ol>
+	</section>
+
+	<section class="slide">
+		<h2>Каждые 2 месяца, на гитхабе появляется 1 клон героев</h2>
+		<ol>
+			<li><a href="https://github.com/sfia-andreidaniel/heroes3">sfia-andreidaniel/heroes3</a></li>
+			<li><a href="https://github.com/mwardrop/HOMM3Clone">mwardrop/HOMM3Clone</a></li>
+			<li><a href="https://github.com/potmdehex/homm3tools">potmdehex/homm3tools</a></li>
+			<li><a href="https://github.com/openhomm/openhomm">openhomm/openhomm</a></li>
+		</ol>
+		<p>Но никто из них не доделывает до конца и не стремится объединяться</p>
+	</section>
+
+	<section class="slide">
+		<h2>Какие цели ставил</h2>
+		<ol>
+			<li>Сделать нечто, прыгнуть выше своей головы</li>
+			<li class="next">Заняться чем-то интересным</li>
+			<li class="next">Перестать играть в героев :)</li>
+		</ol>
+	</section>
+
+	<section class="slide" id="beautiful">
+		<h2 class="shout shrink">4. это просто красиво</h2>
+		<figure>
+			<img class="cover" src="pictures/beautiful.jpg" alt="">
+		</figure>
+		<style>
+			#beautiful {
+				background: #000;
+			}
+			#beautiful h2 {
+				color: #fff;
+				text-align: center;
+				text-shadow: 0 0 30px #000;
+			}
+		</style>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout shrink">Завязка</h2>
+	</section>
+
+	<section class="slide center">
+		<h2>В начале, был рендеринг зеленого поля</h2>
+		<img src="pictures/starting.jpg" alt="">
+	</section>
+
+	<section class="slide center">
+		<h2>Далее &mdash; данные</h2>
+		<img src="pictures/json.png" alt="">
+	</section>
+
+	<section class="slide center">
+		<h2>Первые шаги с Canvas</h2>
+		<img src="pictures/canvas_first.png" alt="">
+	</section>
+
+	<section class="slide">
+		<h2>Встретил много фанатиков героев</h2>
+		<p>Слайд про тех очень странных и закрытых людей, которых я нашел</p>
+	</section>
+
+
+
+	<section class="slide">
+		<h2 class="shout shrink">Парсинг данных</h2>
+	</section>
+
+	<section class="slide">
+		<img class="cover" src="pictures/binnary.png" alt="">
+	</section>
+
+	<section class="slide">
+		<h2>В начале был PHP</h2>
+		<ol>
+			<li>Разные версии форматов карт</li>
+			<li>Опциональные блоки, размер которых нельзя посчитать</li>
+			<li>157 unknown bytes</li>
+			<li>побитовые маски</li>
+		</ol>
+	</section>
+
+	<section class="slide">
+		<h2>Но тут я наткнулся на <a href="https://github.com/potmdehex/homm3tools">homm3tools</a>...</h2>
+		<p>Это набор библиотек и утилит, для работы с картами</p>
+		<ol>
+			<li>Парсер разных форматов</li>
+			<li>Генератор карт</li>
+			<li>Рендер надписей из деревьев</li>
+			<li>Игра змейка</li>
+		</ol>
+	</section>
+
+	<section class="slide">
+		<h2>...и сделал свой конвертор</h2>
+		<p><a href="https://github.com/lekzd/h3m-map-convertor">h3m-map-convertor</a></p>
+		<img src="pictures/convertor.png" alt="">
+	</section>
+
+
+
+	<section class="slide">
+		<h2 class="shout shrink">JS тормозит!?</h2>
+	</section>
+
+	<section class="slide">
+		<img class="cover" src="pictures/js_slow.jpg" alt="">
+	</section>
+
+	<section class="slide center">
+		<h2>ООП везде это плохо</h2>
+		<img src="pictures/flyweight-trees.png" alt="">
+	</section>
+
+	<section class="slide center">
+		<h2>Структуры данных, паттерны проектирования</h2>
+		<img src="pictures/data-locality-pointer-chasing.png" alt="">
+	</section>
+
+	<section class="slide">
+		<h2>Гриды и графы</h2>
+		<p>Храним данные как надо</p>
+	</section>
+
+	<section class="slide">
+		<h2>Структуры хранения данных эволюционировали вместе со мной</h2>
+		<p>Эффективное хрение данных</p>
+	</section>
+
+	<section class="slide">
+		<h2>Паттерны программирования игр</h2>
+		<p><a href="http://gameprogrammingpatterns.com/contents.html">http://gameprogrammingpatterns.com/contents.html</a></p>
+		<p>Если что-то сложно рараюатывать и поддерживать, может стоит сменить паттерн?</p>
+	</section>
+
+	<section class="slide">
+		<h2>Первая версия должна быть какой угодно</h2>
+		<p>Лишь бы работало</p>
+	</section>
+
+
+
+	<section class="slide">
+		<h2 class="shout shrink">Взять и переписать!</h2>
+	</section>
+
+	<section class="slide">
+		<img class="cover" src="pictures/refactoring.png" alt="">
+	</section>
+
+	<section class="slide">
+		<h2>Я несколько раз устраивал глобальные рефакторинги</h2>
+		<ol>
+			<li>Функции -> ES6 классы</li>
+			<li>RequireJS -> ES6 импорты</li>
+			<li>CoffeeScript -> ES6</li>
+			<li>ES6 -> TypeScript</li>
+			<li>Command Pattern -> Стейты</li>
+		</ol>
+	</section>
+
+	<section class="slide">
+		<h2>О пользе абстракций</h2>
+		<p>Developer UX</p>
+		<p>Они позволяют мыслить на новом уровне, делать больше и сложнее</p>
+	</section>
+
+	<section class="slide">
+		<h2>Об эволюции UI</h2>
+		<p>от классов до XML</p>
+	</section>
+
+	<section class="slide">
+		<h2>Три столбика</h2>
+		<p>Баги, фичи и рефакторинг</p>
+		<p>Как не терять мотивацию</p>
+	</section>
+
+
+
+	<section class="slide">
+		<h2 class="shout shrink">Выводы</h2>
+	</section>
+
+	<section class="slide">
+		<img class="cover" src="pictures/battle.jpg" alt="">
+	</section>
+
+	<section class="slide">
+		<h2>Что мне это дало</h2>
+		<ol>
+			<li>саморазвитие</li>
+			<li>выходы за рамки привычных рабочих задач</li>
+			<li>расширение кругозора</li>
+			<li>знакомство с фанатиками</li>
+		</ol>
+	</section>
+
+	<section class="slide">
+		<h2>Зачем делать игры</h2>
+		<ol>
+			<li>куда интереснее чем сайтики</li>
+		</ol>
+	</section>
+
+	<section class="slide">
+		<h2>Степень мастерства</h2>
+		<p>Чем больше ты мастер, тем больше сможешь копать вглубь</p>
+	</section>
+
+
+
+	<footer class="badge">
+		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
+	</footer>
+
+	<div class="progress"></div>
+
+	<script src="node_modules/shower-core/shower.min.js"></script>
+	<!-- Copyright © 2017 Yours Truly, Famous Inc. -->
+
+</body>
+</html>
