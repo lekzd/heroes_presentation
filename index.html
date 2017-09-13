@@ -75,14 +75,6 @@
 	</section>
 
 	<section class="slide">
-		<h2>Игра мечты, первая игра</h2>
-		<ol>
-			<li>Большинство делает игру "три-в-ряд"</li>
-			<li>Тут немного про портрет типичного игродела</li>
-		</ol>
-	</section>
-
-	<section class="slide">
 		<h2>Каждые 2 месяца, на гитхабе появляется 1 клон героев</h2>
 		<ol>
 			<li><a href="https://github.com/sfia-andreidaniel/heroes3">sfia-andreidaniel/heroes3</a></li>
@@ -92,6 +84,14 @@
 		</ol>
 		<p>Но никто из них не доделывает до конца и не стремится объединяться</p>
 	</section>
+
+	<!--<section class="slide">-->
+		<!--<h2>Игра мечты, первая игра</h2>-->
+		<!--<ol>-->
+			<!--<li>Большинство делает игру "три-в-ряд"</li>-->
+			<!--<li>Тут немного про портрет типичного игродела</li>-->
+		<!--</ol>-->
+	<!--</section>-->
 
 	<section class="slide">
 		<h2>Какие цели ставил</h2>
@@ -125,7 +125,7 @@
 
 	<section class="slide center">
 		<h2>В начале, был рендеринг зеленого поля</h2>
-		<img src="pictures/starting.jpg" alt="">
+		<img src="pictures/canvas_first.png" alt="">
 	</section>
 
 	<section class="slide center">
@@ -134,8 +134,8 @@
 	</section>
 
 	<section class="slide center">
-		<h2>Первые шаги с Canvas</h2>
-		<img src="pictures/canvas_first.png" alt="">
+		<h2>Затем &mdash; алгоритмы...</h2>
+		<img src="pictures/starting.jpg" alt="">
 	</section>
 
 	<section class="slide">
@@ -180,14 +180,24 @@
 		<img src="pictures/convertor.png" alt="">
 	</section>
 
-
-
 	<section class="slide">
-		<h2 class="shout shrink">JS тормозит!?</h2>
+		<style>
+			#array_objects {
+				margin-top: 100px;
+				font-size: 55px;
+				text-align: center;
+			}
+		</style>
+		<h2>Данных становилось все больше, кол-во объектов росло...</h2>
+		<div id="array_objects">[🌳, 🌲, 🔥]</div>
 	</section>
 
 	<section class="slide">
 		<img class="cover" src="pictures/js_slow.jpg" alt="">
+	</section>
+
+	<section class="slide">
+		<h2 class="shout shrink">JS тормозит!?</h2>
 	</section>
 
 	<section class="slide center">
@@ -196,29 +206,92 @@
 	</section>
 
 	<section class="slide center">
-		<h2>Структуры данных, паттерны проектирования</h2>
+		<style>
+			#array_map {
+				margin-top: 100px;
+				font-size: 55px;
+				text-align: center;
+			}
+		</style>
+		<h2>А простые массивы &mdash; хорошо</h2>
+		<div id="array_map">[🌲, 🌲, 🌳, 🌲, 🌳, 🌲, 🔥, 🌲]</div>
+	</section>
+
+	<section class="slide">
+		<h2>Нет ничего быстрее циклов...</h2>
+		<pre>
+			<code>for (let i = 0; i < 9000; i++) {</code>
+			<code>    result.push(items[i])</code>
+			<code>}</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Почему бы не добавить их еще больше</h2>
+		<pre>
+			<code><mark>for</mark> (let y = 0; y < 9000; y++) {</code>
+			<code>    <mark>for</mark> (let x = 0; x < 9000; x++) {</code>
+			<code>        result.push(items[x][y])</code>
+			<code>    }</code>
+			<code>}</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Или лучше сразу сделать доступ к данным проще?</h2>
+		<pre>
+			<code><mark>mapGrid.forEach</mark>((x, y) => {</code>
+			<code>    result.push(<mark>itemsGrid.get</mark>(x, y))</code>
+			<code>}</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>А за удобным апи будет эффективное хранение данных</h2>
+		<p>например в плоском массиве</p>
+		<pre>
+			<code>[123, 343, 35, 0, 391 ... ]</code>
+		</pre>
+
+		<p>или вообще в ArrayBuffer</p>
+		<pre>
+			<code>[01001101010100110001010101010]</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Абстракции делают код лучше</h2>
+		<p>Они позволяют мыслить на новом уровне, решать все более сложные задачи, в коде читается бизнес-логика</p>
+
+		<pre>
+			<code>const mapGrid = MapModel.grid</code>
+			<code>const activeHero = player.getSelectedHero()</code>
+			<code>const mainTown = player.getMainTown()</code>
+			<code>const path = AStar.getPath(mapGrid, activeHero, mainTown)</code>
+		</pre>
+	</section>
+
+	<section class="slide center">
 		<img src="pictures/data-locality-pointer-chasing.png" alt="">
-	</section>
-
-	<section class="slide">
-		<h2>Гриды и графы</h2>
-		<p>Храним данные как надо</p>
-	</section>
-
-	<section class="slide">
-		<h2>Структуры хранения данных эволюционировали вместе со мной</h2>
-		<p>Эффективное хрение данных</p>
 	</section>
 
 	<section class="slide">
 		<h2>Паттерны программирования игр</h2>
 		<p><a href="http://gameprogrammingpatterns.com/contents.html">http://gameprogrammingpatterns.com/contents.html</a></p>
-		<p>Если что-то сложно рараюатывать и поддерживать, может стоит сменить паттерн?</p>
+		<p>Если что-то сложно разрабатывать и поддерживать, может стоит сменить паттерн?</p>
 	</section>
 
 	<section class="slide">
 		<h2>Первая версия должна быть какой угодно</h2>
 		<p>Лишь бы работало</p>
+		<pre>
+			<code>// <mark>TODO</mark>: переписать на графы, когда будет время</code>
+			<code>while (hasChunks) { ... }</code>
+			<code>// <mark>TODO</mark>: создать отдельные классы для этого</code>
+			<code>function Knight(id, name) { ... }</code>
+			<code>// <mark>TODO</mark>: тут почему-то тормозит</code>
+			<code>var f = getFactorial(23423423)</code>
+		</pre>
 	</section>
 
 
@@ -243,14 +316,70 @@
 	</section>
 
 	<section class="slide">
-		<h2>О пользе абстракций</h2>
-		<p>Developer UX</p>
-		<p>Они позволяют мыслить на новом уровне, делать больше и сложнее</p>
+		<h2>Напрмер, в начале я создавал UI-элементы так</h2>
+		<pre>
+			<code>const <mark>okButton</mark> = new Buttton(0, 10, 'Ok')</code>
+			<code><mark>okButton</mark>.addEventListener('click', () => { ... })</code>
+			<code>const <mark>cancellButton</mark> = new Buttton(0, 10, 'Cancel')</code>
+			<code><mark>cancellButton</mark>.addEventListener('click', () => { ... })</code>
+		</pre>
 	</section>
 
 	<section class="slide">
-		<h2>Об эволюции UI</h2>
-		<p>от классов до XML</p>
+		<h2>Кол-во параметров росло и росло...</h2>
+		<pre>
+			<code>const <mark>okButton</mark> = new Buttton({</code>
+			<code>    left: 0,</code>
+			<code>    top: 10,</code>
+			<code>    onClick: () => { ... }</code>
+			<code>})</code>
+			<code>const <mark>cancellButton</mark> = new Buttton({...})</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Их становилоь все больше, появился JSON...</h2>
+		<pre>
+			<code>[</code>
+			<code>    {</code>
+			<code>         id: <mark>'okButton'</mark>,</code>
+			<code>         options: {</code>
+			<code>             left: 0,</code>
+			<code>             top: 10,</code>
+			<code>             onClick: () => { ... }</code>
+			<code>         },</code>
+			<code>    },</code>
+			<code>...</code>
+			<code>]</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Но далее я вспомнил, что есть xml</h2>
+		<pre>
+			<code>&lt;button id="<mark>okButton</mark>"</code>
+			<code>        left="0"</code>
+			<code>        top="10"</code>
+			<code>        onClick="doSomething()"</code>
+			<code>/&gt;</code>
+		</pre>
+		<p>При сборке он собирается в JSON с предыдущего слайда</p>
+	</section>
+
+	<section class="slide">
+		<pre>
+			<code>&lt;group id="main" ... &gt;</code>
+			<code>    &lt;group id="header" ... &gt;</code>
+			<code>        &lt;text-block ... /&gt;</code>
+			<code>        &lt;button ... /&gt;</code>
+			<code>    &lt;/group&gt;</code>
+			<code>    &lt;group id="footer" ... &gt;</code>
+			<code>        &lt;any-component ... /&gt;</code>
+			<code>        &lt;button ... /&gt;</code>
+			<code>    &lt;/group&gt;</code>
+			<code>&lt;/group&gt;</code>
+		</pre>
+		<p>При сборке он собирается в JSON с предыдущего слайда</p>
 	</section>
 
 	<section class="slide">
