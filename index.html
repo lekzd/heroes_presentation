@@ -48,6 +48,10 @@
 			#cover p a {
 				color:#FFF;
 			}
+
+			.red {
+				color: #c00;
+			}
 		</style>
 	</section>
 
@@ -120,7 +124,7 @@
 	</section>
 
 	<section class="slide">
-		<h2 class="shout shrink">Завязка</h2>
+		<h2 class="shout shrink">Если говорить кратко</h2>
 	</section>
 
 	<section class="slide center">
@@ -138,15 +142,18 @@
 		<img src="pictures/starting.jpg" alt="">
 	</section>
 
-	<section class="slide">
-		<h2>Встретил много фанатиков героев</h2>
-		<p>Слайд про тех очень странных и закрытых людей, которых я нашел</p>
+	<section class="slide center">
+		<img src="pictures/grabli.jpg" alt="">
 	</section>
 
 
 
 	<section class="slide">
-		<h2 class="shout shrink">Парсинг данных</h2>
+		<h2 class="shout shrink"><span class="red">#1</span> Парсинг данных</h2>
+	</section>
+
+	<section class="slide">
+		<img class="cover" src="pictures/hex.png" alt="">
 	</section>
 
 	<section class="slide">
@@ -189,7 +196,13 @@
 			}
 		</style>
 		<h2>Данных становилось все больше, кол-во объектов росло...</h2>
-		<div id="array_objects">[🌳, 🌲, 🔥]</div>
+		<div id="array_objects">
+			<img src="pictures/avsmarl.png" alt="">
+			<img src="pictures/avsarna0.png" alt="">
+			<img src="pictures/avmalch0.png" alt="">
+			<img src="pictures/avswar20.png" alt="">
+			<img src="pictures/avxredw.png" alt="">
+		</div>
 	</section>
 
 	<section class="slide">
@@ -197,11 +210,11 @@
 	</section>
 
 	<section class="slide">
-		<h2 class="shout shrink">JS тормозит!?</h2>
+		<h2 class="shout shrink"><span class="red">#2</span> JS тормозит!?</h2>
 	</section>
 
 	<section class="slide center">
-		<h2>ООП везде это плохо</h2>
+		<h2>ООП &mdash; это плохо</h2>
 		<img src="pictures/flyweight-trees.png" alt="">
 	</section>
 
@@ -272,7 +285,7 @@
 	</section>
 
 	<section class="slide center">
-		<img src="pictures/data-locality-pointer-chasing.png" alt="">
+		<img class="cover" src="pictures/data-locality-pointer-chasing.png" alt="">
 	</section>
 
 	<section class="slide">
@@ -297,7 +310,7 @@
 
 
 	<section class="slide">
-		<h2 class="shout shrink">Взять и переписать!</h2>
+		<h2 class="shout shrink"><span class="red">#3</span> Взять и переписать!</h2>
 	</section>
 
 	<section class="slide">
@@ -383,9 +396,69 @@
 	</section>
 
 	<section class="slide">
-		<h2>Три столбика</h2>
-		<p>Баги, фичи и рефакторинг</p>
-		<p>Как не терять мотивацию</p>
+		<style>
+			.columns {
+				display: flex;
+				justify-content: space-between;
+			}
+
+			.bugs {
+				width: 30%;
+				background: #fdcbb8;
+				padding: 10px 25px;
+			}
+
+			.features {
+				width: 30%;
+				background: #91ed8c;
+				padding: 10px 25px;
+			}
+
+			.refactoring {
+				width: 30%;
+				background: #fbff8b;
+				padding: 10px 25px;
+			}
+
+			.columns ol {
+				margin-left: 30px;
+			}
+
+			.columns ol li:before {
+				color: #000;
+			}
+
+		</style>
+		<h2>Как соxранить мотивацию?</h2>
+		<div class="columns">
+			<div class="bugs">
+				<h3>Баги:</h3>
+				<ol>
+					<li>...</li>
+					<li>...</li>
+					<li>...</li>
+					<li>...</li>
+				</ol>
+			</div>
+			<div class="features">
+				<h3>Фичи:</h3>
+				<ol>
+					<li>...</li>
+					<li>...</li>
+					<li>...</li>
+					<li>...</li>
+				</ol>
+			</div>
+			<div class="refactoring">
+				<h3>Рефаторинг:</h3>
+				<ol>
+					<li>...</li>
+					<li>...</li>
+					<li>...</li>
+					<li>...</li>
+				</ol>
+			</div>
+		</div>
 	</section>
 
 
@@ -412,6 +485,8 @@
 		<h2>Зачем делать игры</h2>
 		<ol>
 			<li>куда интереснее чем сайтики</li>
+			<li>это алгоритмы</li>
+			<li>это красиво</li>
 		</ol>
 	</section>
 
