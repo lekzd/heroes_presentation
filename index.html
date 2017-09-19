@@ -55,27 +55,48 @@
 		</style>
 	</section>
 
-	<section class="slide" id="beginning">
-		<!--<h2 class="shout shrink">...</h2>-->
-		<figure>
-			<img class="cover" src="pictures/begining.png" alt="">
-		</figure>
-		<!--<ol>-->
-			<!--<li>Built on HTML, CSS and vanilla JavaScript</li>-->
-			<!--<li>Works in all modern browsers</li>-->
-			<!--<li>Themes are separated from engine</li>-->
-			<!--<li>Modular and extensible</li>-->
-			<!--<li>Fully keyboard accessible</li>-->
-			<!--<li>Printable to PDF</li>-->
-		<!--</ol>-->
-		<!--<p class="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>-->
-
+	<section class="slide" id="about">
 		<style>
-			#beginning h2 {
+			#about {
+				padding-left: 50%;
+			}
+			#about .cover {
+				left: 0;
+				transform: translate(0, -50%);
+			}
+			.slide h2.left-inversed-header {
 				color: #fff;
-				text-shadow: 0 0 30px #000;
+				position: absolute;
+				left: 180px;
+			}
+			#about small {
+				color: #555;
+				font-size: 18px;
+				line-height: 1.2em;
 			}
 		</style>
+		<img class="cover" src="pictures/me.jpg" alt="">
+		<h2 class="left-inversed-header">Меня зовут</h2>
+		<h2>Коротаев Александр</h2>
+		<ol>
+			<li>
+				Работаю в Tinkoff.ru
+				<br>
+				<small>Делаю внутренние сервисы и кабинет для бизнеса</small>
+			</li>
+			<li>
+				Делаю <a href="http://spb-frontend.ru/podcast/">SPB-Frontend Drinkcast</a>
+				<br>
+				<small>Подкаст o фронтенде за кружкой пива</small>
+			</li>
+			<li>Хожу на митапы 🤓</li>
+		</ol>
+	</section>
+
+	<section class="slide center">
+		<h2>Демка Героев 3 в браузере</h2>
+		<h2><a href="http://homm.lekzd.ru/">http://homm.lekzd.ru/</a></h2>
+		<h2>[тут будет большой QR код]</h2>
 	</section>
 
 	<section class="slide">
@@ -85,6 +106,7 @@
 			<li><a href="https://github.com/mwardrop/HOMM3Clone">mwardrop/HOMM3Clone</a></li>
 			<li><a href="https://github.com/potmdehex/homm3tools">potmdehex/homm3tools</a></li>
 			<li><a href="https://github.com/openhomm/openhomm">openhomm/openhomm</a></li>
+			<li>⚠️<a href="https://github.com/vcmi/vcmi">vcmi/vcmi</a></li>
 		</ol>
 		<p>Но никто из них не доделывает до конца и не стремится объединяться</p>
 	</section>
@@ -107,7 +129,7 @@
 	</section>
 
 	<section class="slide" id="beautiful">
-		<h2 class="shout shrink">4. это просто красиво</h2>
+		<h2 class="shout shrink">4. сделать красиво</h2>
 		<figure>
 			<img class="cover" src="pictures/beautiful.jpg" alt="">
 		</figure>
@@ -123,8 +145,115 @@
 		</style>
 	</section>
 
+	<section class="slide" id="beginning">
+		<figure>
+			<img class="cover" src="pictures/begining.png" alt="">
+		</figure>
+
+		<style>
+			#beginning h2 {
+				color: #fff;
+				text-shadow: 0 0 30px #000;
+			}
+		</style>
+	</section>
+
 	<section class="slide">
-		<h2 class="shout shrink">Если говорить кратко</h2>
+		<h2>Из чего состоит игра?</h2>
+		<ol>
+			<li>Модель данных (персонажи, карта, хранение состояния)</li>
+			<li>Игровой цикл (game loop)</li>
+			<li>Обработка ввода (мышь, клавиатура, джойстик...)</li>
+			<li>Отрисовка (renderer)</li>
+		</ol>
+	</section>
+
+	<section class="slide">
+		<h2>А если представить это ввиде кода, то</h2>
+		<pre>
+			<code>const me = {name: 'Alex', left: 0}</code>
+			<code>...</code>
+			<code>setInterval(() => update(), 1000)</code>
+			<code>...</code>
+			<code>window.addEventListener('keyup', () => me.left++)</code>
+			<code>...</code>
+			<code>requestAnimationFrame(() => draw())</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Модель</h2>
+		<pre>
+			<code><mark>const me = {name: 'Alex', left: 0}</mark></code>
+			<code>...</code>
+			<code>setInterval(() => update(), 1000)</code>
+			<code>...</code>
+			<code>window.addEventListener('keyup', () => me.left++)</code>
+			<code>...</code>
+			<code>requestAnimationFrame(() => draw())</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Game loop</h2>
+		<pre>
+			<code>const me = {name: 'Alex', left: 0}</code>
+			<code>...</code>
+			<code><mark>setInterval(() => update(), 1000)</mark></code>
+			<code>...</code>
+			<code>window.addEventListener('keyup', () => me.left++)</code>
+			<code>...</code>
+			<code>requestAnimationFrame(() => draw())</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Обрабтка ввода</h2>
+		<pre>
+			<code>const me = {name: 'Alex', left: 0}</code>
+			<code>...</code>
+			<code>setInterval(() => update(), 1000)</code>
+			<code>...</code>
+			<code><mark>window.addEventListener('keyup', () => me.left++)</mark></code>
+			<code>...</code>
+			<code>requestAnimationFrame(() => draw())</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Отрисовка</h2>
+		<pre>
+			<code>const me = {name: 'Alex', left: 0}</code>
+			<code>...</code>
+			<code>setInterval(() => update(), 1000)</code>
+			<code>...</code>
+			<code>window.addEventListener('keyup', () => me.left++)</code>
+			<code>...</code>
+			<code><mark>requestAnimationFrame(() => draw())</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Подробне про gamedev на JS в книге
+			<br><a href="http://bakhirev.biz/book/">Сюрреализм на JavaScript</a>
+		</h2>
+
+		<img src="pictures/game_weapon_1.jpg" alt="">
+	</section>
+
+	<section class="slide">
+		<h2 class="shout shrink">Краткая история разработки</h2>
+	</section>
+
+	<section class="slide">
+		<h2>Что мы имеем из входных данных?</h2>
+		<ol>
+			<li>Оригинальная игра</li>
+			<li>Редактор карт</li>
+			<li><a href="https://vk.com/fizmig">FizMig</a> &mdash; большой справочник по всем игровым механикам</li>
+			<li>Много форумов с ребятами, по многу лет копавшимися в "героях"</li>
+			<li>Распаковщик ресурсов 😎</li>
+		</ol>
 	</section>
 
 	<section class="slide center">
@@ -135,6 +264,7 @@
 	<section class="slide center">
 		<h2>Далее &mdash; данные</h2>
 		<img src="pictures/json.png" alt="">
+		<p>Карты, персонажи, навыки, умения...</p>
 	</section>
 
 	<section class="slide center">
@@ -149,7 +279,11 @@
 
 
 	<section class="slide">
-		<h2 class="shout shrink"><span class="red">#1</span> Парсинг данных</h2>
+		<h2 class="shout shrink"><span class="red">#1</span> Парсинг карт</h2>
+	</section>
+
+	<section class="slide">
+		<img class="cover" src="pictures/map_editor.jpg" alt="">
 	</section>
 
 	<section class="slide">
@@ -166,7 +300,7 @@
 			<li>Разные версии форматов карт</li>
 			<li>Опциональные блоки, размер которых нельзя посчитать</li>
 			<li>157 unknown bytes</li>
-			<li>побитовые маски</li>
+			<li>Побитовые маски и прочие ухищрения с байтами</li>
 		</ol>
 	</section>
 
@@ -177,7 +311,7 @@
 			<li>Парсер разных форматов</li>
 			<li>Генератор карт</li>
 			<li>Рендер надписей из деревьев</li>
-			<li>Игра змейка</li>
+			<li>И, даже, игра "змейка"</li>
 		</ol>
 	</section>
 
@@ -214,6 +348,40 @@
 	</section>
 
 	<section class="slide center">
+		<h2>Вся карта &mdash; это сетка</h2>
+		<img src="pictures/tiles.png" alt="">
+		<p>* а точнее &mdash; тайлы</p>
+	</section>
+
+	<section class="slide">
+		<h2>Каждый тайл это</h2>
+		<ol>
+			<li>Тип (вода, земля, дерево)</li>
+			<li>Проходимость/стоимость перемещения</li>
+			<li>Наличие события</li>
+			<li>Флаг "Кем занят"</li>
+			<li>...</li>
+		</ol>
+	</section>
+
+	<section class="slide">
+		<h2>Представим это в коде</h2>
+		<pre>
+			<code>const map = [</code>
+			<code>    [{...}, {...}, {...}, {...}, {...}, {...}],</code>
+			<code>    [{...}, {...}, {...}, {...}, {...}, {...}],</code>
+			<code>    [{...}, {...}, {...}, {...}, {...}, {...}],</code>
+			<code>    ...</code>
+			<code>]</code>
+			<code>const tile = <mark>map[1][3]</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<img class="cover" src="pictures/pathfinding.png" alt="">
+	</section>
+
+	<section class="slide center">
 		<h2>ООП &mdash; это плохо</h2>
 		<img src="pictures/flyweight-trees.png" alt="">
 	</section>
@@ -221,13 +389,25 @@
 	<section class="slide center">
 		<style>
 			#array_map {
-				margin-top: 100px;
+				margin-top: 70px;
 				font-size: 55px;
 				text-align: center;
 			}
 		</style>
 		<h2>А простые массивы &mdash; хорошо</h2>
 		<div id="array_map">[🌲, 🌲, 🌳, 🌲, 🌳, 🌲, 🔥, 🌲]</div>
+		<div id="array_map">[0, 1, 0, 1, 1, 1, 0, 1]</div>
+	</section>
+
+	<section class="slide">
+		<h2>Этот паттерн называется "Flyweight"</h2>
+		<p>Подробнее об этом в книге <a href="http://gameprogrammingpatterns.com/contents.html">Game Programming Patterns</a></p>
+		<ol>
+			<li>Как быстро считать столкновения</li>
+			<li>Что такое сервисы и обсерверы</li>
+			<li>Как организовать систему событий</li>
+			<li>И много отличных иллюстраций</li>
+		</ol>
 	</section>
 
 	<section class="slide">
@@ -286,12 +466,6 @@
 
 	<section class="slide center">
 		<img class="cover" src="pictures/data-locality-pointer-chasing.png" alt="">
-	</section>
-
-	<section class="slide">
-		<h2>Паттерны программирования игр</h2>
-		<p><a href="http://gameprogrammingpatterns.com/contents.html">http://gameprogrammingpatterns.com/contents.html</a></p>
-		<p>Если что-то сложно разрабатывать и поддерживать, может стоит сменить паттерн?</p>
 	</section>
 
 	<section class="slide">
@@ -368,7 +542,7 @@
 	</section>
 
 	<section class="slide">
-		<h2>Но далее я вспомнил, что есть xml</h2>
+		<h2>Но далее я вспомнил, что есть XML</h2>
 		<pre>
 			<code>&lt;button id="<mark>okButton</mark>"</code>
 			<code>        left="0"</code>
@@ -393,6 +567,11 @@
 			<code>&lt;/group&gt;</code>
 		</pre>
 		<p>При сборке он собирается в JSON с предыдущего слайда</p>
+	</section>
+
+	<section class="slide center">
+		<h2>Прямо как в <a href="https://github.com/Flipboard/react-canvas">react-canvas</a></h2>
+		<img src="pictures/flip_ui.gif" alt="">
 	</section>
 
 	<section class="slide">
@@ -493,6 +672,12 @@
 	<section class="slide">
 		<h2>Степень мастерства</h2>
 		<p>Чем больше ты мастер, тем больше сможешь копать вглубь</p>
+	</section>
+
+
+
+	<section class="slide">
+		<h2 class="shout shrink">Вопросы</h2>
 	</section>
 
 
