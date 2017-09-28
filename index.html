@@ -11,6 +11,10 @@
 		.center {
 			text-align: center;
 		}
+
+		.black {
+			background-color: #000;
+		}
 	</style>
 </head>
 <body class="shower list">
@@ -339,7 +343,7 @@
 		</div>
 	</section>
 
-	<section class="slide">
+	<section class="slide black">
 		<img class="cover" src="pictures/js_slow.jpg" alt="">
 	</section>
 
@@ -377,8 +381,12 @@
 		</pre>
 	</section>
 
-	<section class="slide">
+	<section class="slide black">
 		<img class="cover" src="pictures/pathfinding.png" alt="">
+	</section>
+
+	<section class="slide black">
+		<img class="cover" src="pictures/pathfinding.gif" alt="">
 	</section>
 
 	<section class="slide center">
@@ -449,6 +457,202 @@
 		<p>или вообще в ArrayBuffer</p>
 		<pre>
 			<code>[01001101010100110001010101010]</code>
+		</pre>
+	</section>
+
+	<section class="slide black">
+		<img class="cover" src="pictures/movement.gif" alt="">
+	</section>
+
+	<section class="slide center">
+		<h2>Минутка геометрии</h2>
+		<style>
+
+			.grass {
+				position: relative;
+				width: 350px;
+				height: 350px;
+				margin: auto;
+			}
+
+			.slide table.grass_table {
+				border: 3px dashed #777;
+				border-collapse: collapse;
+				width: 100%;
+				height: 100%;
+				table-layout: fixed;
+				margin-left: 0;
+			}
+
+			.slide table.grass_table td {
+				border: 3px dashed #777;
+				background: transparent;
+			}
+
+			.grass_arrow {
+				position: absolute;
+				left: 0;
+				top: -2px;
+				border-top: 5px solid;
+				width: 350px;
+			}
+
+			.grass_arrow:after {
+				content: '';
+				position: absolute;
+				right: -17px;
+				top: -12px;
+				border: 10px solid;
+				border-top-color: transparent;
+				border-right-color: transparent;
+				border-bottom-color: transparent;
+			}
+
+			.grass_hor {
+				color: red;
+			}
+
+			.grass_vert {
+				color: blue;
+				transform: rotate(45deg);
+				transform-origin: 0 0;
+			}
+
+			.grass_vert_long {
+				color: blue;
+				transform: rotate(45deg);
+				transform-origin: 0 0;
+				width: 493px;
+			}
+		</style>
+		<div class="grass">
+			<table class="grass_table">
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+			<div class="grass_arrow grass_hor"></div>
+			<div class="grass_arrow grass_vert"></div>
+		</div>
+	</section>
+
+	<section class="slide center">
+		<h2>Минутка <mark>герое</mark>ометрии 🏇</h2>
+		<div class="grass">
+			<table class="grass_table">
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+			<div class="grass_arrow grass_hor"></div>
+			<div class="grass_arrow grass_vert_long"></div>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Чтобы достичь одинаковой скорости...</h2>
+		<br>
+		<div class="grass" style="margin-left: 0">
+			<h2 class="grass_arrow" style="color: red">4 шага</h2>
+			<h2 class="grass_arrow" style="color: blue; width: 141%; top: 150px;">~6 шагов</h2>
+		</div>
+	</section>
+
+	<section class="slide center">
+		<h2><mark>setTimeout</mark>(() => setTimeout())</h2>
+		<h2>vs</h2>
+		<h2><mark>setInterval</mark>()</h2>
+		<h2>vs</h2>
+		<h2><mark>requestAnimationFrame</mark>()</h2>
+	</section>
+
+	<section class="slide center">
+		<h2>Задачи < <mark>микрозадачи</mark></h2>
+		<br><br>
+		<h2>Promise()</h2>
+		<br><br>
+		<a href="https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/">Подробнее об этом в статье Джека Арчибальда</a>
+	</section>
+
+	<section class="slide">
+		<h2>Возьмем все и сразу</h2>
+		<pre>
+			<code>new Promise(resolve => {</code>
+			<code>    setTimeout(() => {</code>
+			<code>        <mark>// расчеты для анимации</mark></code>
+			<code>        requestAnimationFrame(() => <mark>/* рисование */</mark>)</code>
+			<code>        resolve()</code>
+			<code>    })</code>
+			<code>})</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Построим из этого последовательность</h2>
+		<pre>
+			<code>startAnimation()</code>
+			<code>    .then(step)</code>
+			<code>    .then(step)</code>
+			<code>    .then(step)</code>
+			<code>    .then(step)</code>
+			<code>    .then(doAction)</code>
+			<code>    .then(endAnimation)</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>А лучше сразу декларативную абстракцию</h2>
+		<pre>
+			<code>AsyncSequence([</code>
+			<code>    startAnimation, [</code>
+			<code>        step</code>
+			<code>        step</code>
+			<code>        ...</code>
+			<code>        doAction],</code>
+			<code>    endAnimation</code>
+			<code>])</code>
 		</pre>
 	</section>
 
@@ -646,7 +850,7 @@
 		<h2 class="shout shrink">Выводы</h2>
 	</section>
 
-	<section class="slide">
+	<section class="slide black">
 		<img class="cover" src="pictures/battle.jpg" alt="">
 	</section>
 
