@@ -15,6 +15,18 @@
 		.black {
 			background-color: #000;
 		}
+
+		.doubleColumns {
+			display: flex;
+			flex-direction: row;
+			width: 100%;
+			height: 70%;
+		}
+
+		.doubleColumns > div {
+			width: 50%;
+			height: 100%;
+		}
 	</style>
 </head>
 <body class="shower list">
@@ -299,17 +311,7 @@
 	</section>
 
 	<section class="slide">
-		<h2>В начале был PHP</h2>
-		<ol>
-			<li>Разные версии форматов карт</li>
-			<li>Опциональные блоки, размер которых нельзя посчитать</li>
-			<li>157 unknown bytes</li>
-			<li>Побитовые маски и прочие ухищрения с байтами</li>
-		</ol>
-	</section>
-
-	<section class="slide">
-		<h2>Но тут я наткнулся на <a href="https://github.com/potmdehex/homm3tools">homm3tools</a>...</h2>
+		<h2>Я решил использовать <a href="https://github.com/potmdehex/homm3tools">homm3tools</a>...</h2>
 		<p>Это набор библиотек и утилит, для работы с картами</p>
 		<ol>
 			<li>Парсер разных форматов</li>
@@ -317,6 +319,10 @@
 			<li>Рендер надписей из деревьев</li>
 			<li>И, даже, игра "змейка"</li>
 		</ol>
+	</section>
+
+	<section class="slide">
+		<img class="cover" src="pictures/h3msnake.gif" alt="">
 	</section>
 
 	<section class="slide">
@@ -348,116 +354,502 @@
 	</section>
 
 	<section class="slide">
-		<h2 class="shout shrink"><span class="red">#2</span> JS тормозит!?</h2>
-	</section>
-
-	<section class="slide center">
-		<h2>Вся карта &mdash; это сетка</h2>
-		<img src="pictures/tiles.png" alt="">
-		<p>* а точнее &mdash; тайлы</p>
+		<h2 class="shout shrink">Все тормозит!</h2>
 	</section>
 
 	<section class="slide">
-		<h2>Каждый тайл это</h2>
-		<ol>
-			<li>Тип (вода, земля, дерево)</li>
-			<li>Проходимость/стоимость перемещения</li>
-			<li>Наличие события</li>
-			<li>Флаг "Кем занят"</li>
-			<li>...</li>
-		</ol>
+		<h2 class="shout shrink"><span class="red">#1</span> Отрисовка карты</h2>
 	</section>
 
 	<section class="slide">
-		<h2>Представим это в коде</h2>
+		<h2>Canvas это не DOM</h2>
 		<pre>
-			<code>const map = [</code>
-			<code>    [{...}, {...}, {...}, {...}, {...}, {...}],</code>
-			<code>    [{...}, {...}, {...}, {...}, {...}, {...}],</code>
-			<code>    [{...}, {...}, {...}, {...}, {...}, {...}],</code>
-			<code>    ...</code>
-			<code>]</code>
-			<code>const tile = <mark>map[1][3]</mark></code>
+			<code>const ctx = canvas.getContext('2d')</code>
+			<code> </code>
+			<code>ctx.drawImage(hero, 0, 0)</code>
+			<code><mark>ctx.clearRect(0, 0, 100, 100)</mark></code>
+			<code>ctx.drawImage(hero, 100, 0)</code>
+			<code><mark>ctx.clearRect(0, 0, 100, 100)</mark></code>
+			<code>ctx.drawImage(hero, 200, 0)</code>
 		</pre>
 	</section>
 
-	<section class="slide black">
-		<img class="cover" src="pictures/pathfinding.png" alt="">
-	</section>
-
-	<section class="slide black">
-		<img class="cover" src="pictures/pathfinding.gif" alt="">
-	</section>
-
-	<section class="slide center">
-		<h2>ООП &mdash; это плохо</h2>
-		<img src="pictures/flyweight-trees.png" alt="">
+	<section class="slide">
+		<h2>А если под героем трава...</h2>
+		<pre>
+			<code>const ctx = canvas.getContext('2d')</code>
+			<code> </code>
+			<code>ctx.drawImage(hero, 0, 0)</code>
+			<code><mark>ctx.drawImage(grass, 0, 0)</mark></code>
+			<code>ctx.drawImage(hero, 100, 0)</code>
+			<code><mark>ctx.drawImage(grass, 100, 0)</mark></code>
+			<code>ctx.drawImage(hero, 200, 0)</code>
+		</pre>
 	</section>
 
 	<section class="slide center">
 		<style>
-			#array_map {
-				margin-top: 70px;
-				font-size: 55px;
-				text-align: center;
+
+			@keyframes layer1 {
+				0% {
+					transform:
+						translate3d(0, 0, 0)
+						rotate3d(0, 1, 0, 0deg)
+				}
+				50% {
+					transform:
+						translate3d(-100px, -100px, -50px)
+						rotate3d(0, 1, 0, 25deg)
+				}
+				100% {
+					transform:
+						translate3d(0, 0, 0)
+						rotate3d(0, 1, 0, 0deg)
+				}
+			}
+
+			@keyframes layer2 {
+				0% {
+					transform:
+						translate3d(0, 0, 0)
+						rotate3d(0, 1, 0, 0deg)
+				}
+				50% {
+					transform:
+						translate3d(50px, 0, 0)
+						rotate3d(0, 1, 0, 25deg)
+				}
+				100% {
+					transform:
+						translate3d(0, 0, 0)
+						rotate3d(0, 1, 0, 0deg)
+				}
+			}
+
+			@keyframes layer3 {
+				0% {
+					transform:
+						translate3d(0, 0, 0)
+						rotate3d(0, 1, 0, 0deg)
+				}
+				50% {
+					transform:
+						translate3d(250px, 100px, 50px)
+						rotate3d(0, 1, 0, 25deg)
+				}
+				100% {
+					transform:
+						translate3d(0, 0, 0)
+						rotate3d(0, 1, 0, 0deg)
+				}
+			}
+
+			.layers {
+				position: relative;
+				max-width: 100%;
+				max-height: 100%;
+
+				perspective: 800px;
+			}
+
+			.layers img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: auto;
+
+				animation-duration: 4s;
+				animation-delay: 1s;
+				animation-iteration-count: infinite;
+
+				transition: transform linear .2s;
+			}
+
+			.active .layer1 {
+				animation-name: layer1;
+			}
+
+			.active .layer2 {
+				animation-name: layer2;
+			}
+
+			.active .layer3 {
+				animation-name: layer3;
 			}
 		</style>
-		<h2>А простые массивы &mdash; хорошо</h2>
-		<div id="array_map">[🌲, 🌲, 🌳, 🌲, 🌳, 🌲, 🔥, 🌲]</div>
-		<div id="array_map">[0, 1, 0, 1, 1, 1, 0, 1]</div>
+
+		<div class="layers">
+			<img class="layer1" src="pictures/layer1.png">
+			<img class="layer2" src="pictures/layer2.png">
+			<img class="layer3" src="pictures/layer3.png">
+		</div>
 	</section>
 
 	<section class="slide">
-		<h2>Этот паттерн называется "Flyweight"</h2>
-		<p>Подробнее об этом в книге <a href="http://gameprogrammingpatterns.com/contents.html">Game Programming Patterns</a></p>
+		<h2>Я просто использую 3 &lt;canvas&gt;</h2>
+		<pre>
+			<code>&lt;canvas id="terrain"&gt;</code>
+			<code>&lt;canvas id="objects"&gt;</code>
+			<code>&lt;canvas id="ui"&gt;</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Алгоритм рисования террейна</h2>
 		<ol>
-			<li>Как быстро считать столкновения</li>
-			<li>Что такое сервисы и обсерверы</li>
-			<li>Как организовать систему событий</li>
-			<li>И много отличных иллюстраций</li>
+			<li>Взять тайл типа почвы</li>
+			<li>Нарисовать его со смещением и поворотом</li>
+			<li>Наложить реки</li>
+			<li>Наложить дороги</li>
+			<li>И еще остались особые типы почв...</li>
 		</ol>
 	</section>
 
 	<section class="slide">
-		<h2>Нет ничего быстрее циклов...</h2>
+		<style>
+			.terrain {
+				display: inline-block;
+				width: 64px;
+				height: 384px;
+				margin-right: 32px;
+			}
+
+			.terrain-result {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				background: url(pictures/layer1.png);
+				background-size: cover;
+			}
+			.terrain-cell {
+				width: 33%;
+				border: 3px dashed #fff;
+				position: relative;
+				margin-right: -3px;
+				margin-bottom: -3px;
+			}
+		</style>
+		<h2>Рисуем все сразу и кладем в кэш</h2>
+		<div class="doubleColumns">
+			<div>
+				<div class="terrain" style="background: url(pictures/terr_02.jpg)"></div>
+				<div class="terrain" style="background: url(pictures/terr_08.jpg)"></div>
+				<div class="terrain" style="background: url(pictures/dirt_road.png)"></div>
+			</div>
+			<div class="terrain-result">
+				<div class="terrain-cell"></div>
+				<div class="terrain-cell"></div>
+				<div class="terrain-cell"></div>
+				<div class="terrain-cell"></div>
+				<div class="terrain-cell"></div>
+				<div class="terrain-cell"></div>
+				<div class="terrain-cell"></div>
+				<div class="terrain-cell"></div>
+				<div class="terrain-cell"></div>
+			</div>
+		</div>
+	</section>
+
+	<section class="slide">
+		<style>
+
+			@keyframes dragging {
+				0% {
+					transform: translateX(0);
+				}
+				20% {
+					transform: translateX(-64px);
+				}
+				40% {
+					transform: translateX(-128px);
+				}
+				60% {
+					transform: translateX(-192px);
+				}
+				80% {
+					transform: translateX(-256px);
+				}
+				100% {
+					transform: translateX(-320px);
+				}
+			}
+
+			@keyframes offset {
+				0% {
+					left: 0;
+					background-position-x: 0;
+				}
+				20% {
+					left: 0;
+					background-position-x: 0;
+				}
+				40% {
+					left: 64px;
+					background-position-x: -64px;
+				}
+				60% {
+					left: 128px;
+					background-position-x: -128px;
+				}
+				80% {
+					left: 192px;
+					background-position-x: -192px;
+				}
+				100% {
+					left: 256px;
+					background-position-x: -256px;
+				}
+			}
+
+			.mapFrame {
+				position: relative;
+				width: 50%;
+				height: 100%;
+				margin: auto;
+			}
+
+			.mapFrame .mapFrame-border {
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				outline: 5px solid #c00;
+			}
+
+			.map {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: calc(100% + 64px);
+				height: 100%;
+				background: url(pictures/layer1.png);
+			}
+
+			.active .map {
+				animation-name: dragging, offset;
+				animation-delay: 1s;
+				animation-duration: 5s;
+				animation-iteration-count: infinite;
+				animation-timing-function: linear, step-start;
+			}
+
+			.description {
+				width: 50%;
+				height: 100%;
+			}
+		</style>
+
+		<h2>Как плавно двигать карту</h2>
+
+		<div class="doubleColumns">
+			<div class="description">
+				<ol>
+					<li>
+						Сдвигаем карту при помощи </br>
+						<mark>transform: translate()</mark>
+					</li>
+					<li>
+						Каждые 32 пикселя </br>
+						<mark>увеличиваем left на 32px</mark></br>
+						<mark>рисуем еще одну полоску</mark>
+					</li>
+				</ol>
+
+				<p>
+					Иллюзия непрерывного блока </br>
+					спасибо <span class="red">Я</span><span>ндекс-картам</span> за идею
+				</p>
+			</div>
+			<div class="mapFrame">
+				<div class="map"></div>
+				<div class="mapFrame-border"></div>
+			</div>
+		</div>
+	</section>
+
+	<section class="slide center">
+		<h2 class="shout shrink">
+			<span class="red">#2</span> Отрисовка объектов
+		</h2>
+	</section>
+
+	<section class="slide center">
+		<h2>Особенности рисования объектов</h2>
+		<style>
+
+			.objectsDraw {
+				position: relative;
+				width: 350px;
+				height: 350px;
+				margin: auto;
+			}
+
+			.slide table.objectsDraw_table {
+				border: 3px dashed #777;
+				border-collapse: collapse;
+				width: 100%;
+				height: 100%;
+				table-layout: fixed;
+				margin-left: 0;
+			}
+
+			.slide table.objectsDraw_table td {
+				border: 3px dashed #777;
+				background: transparent;
+			}
+
+			.objectsDraw_arrow {
+				position: absolute;
+				left: 0;
+				bottom: -2px;
+				border-top: 5px solid;
+				width: 350px;
+			}
+
+			.objectsDraw_arrow:after {
+				content: '';
+				position: absolute;
+				left: -17px;
+				top: -12px;
+				border: 10px solid;
+				border-top-color: transparent;
+				border-left-color: transparent;
+				border-bottom-color: transparent;
+			}
+
+			.objectsDraw_hor {
+				color: red;
+			}
+
+			.objectsDraw_vert {
+				color: blue;
+				transform: rotate(90deg);
+				transform-origin: 100% 100%;
+				left: -3px;
+			}
+
+			.objectArena {
+				position: absolute;
+				bottom: 86px;
+				right: 0;
+				background: url(pictures/avsarna0.png) rgba(240, 255, 28, 0.22);
+				width: 96px;
+				height: 96px;
+				transform: scale(2.75, 2.75);
+				transform-origin: 100% 100%;
+			}
+
+			.objectTower {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				background: url(pictures/avxredw.png) rgba(255, 0, 3, 0.22);
+				width: 64px;
+				height: 96px;
+				transform: scale(2.75, 2.75);
+				transform-origin: 100% 100%;
+			}
+		</style>
+		<div class="objectsDraw">
+			<table class="objectsDraw_table">
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+			<div class="objectsDraw_arrow objectsDraw_hor"></div>
+			<div class="objectsDraw_arrow objectsDraw_vert"></div>
+
+			<div class="objectArena"></div>
+			<div class="objectTower"></div>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Алгоритм рисования объектов</h2>
+		<ol>
+			<li>Сортируем массив объектов по Y нижней границы</li>
+			<li>Фильтруем те, что не попадают в окно</li>
+			<li>...тут масса проверок...</li>
+			<li>Рисуем текстуру объекта</li>
+			<li>Если нужно рисуем флаг игрока</li>
+		</ol>
+		<p>А ведь кол-во объектов на карте может достигать over 9000!</p>
+	</section>
+
+	<section class="slide">
+		<h2>Построим дерево!</h2>
+		<div class="doubleColumns">
+			<div>
+				<ol>
+					<li>Каждая ветвь - Y объекта</li>
+					<li>Объекты на ветви <br> отсортированы по X</li>
+				</ol>
+				<p>
+					<span class="red">+</span> отсечение видимых объектов <br>
+					<span class="red">+</span> корректное перекрытие <br>
+					<span class="red">+</span> более дешевая итерация <br>
+				</p>
+			</div>
+			<div>
+				<pre>
+					<code>const renderTree = {</code>
+					<code>    32: [object, object, ...]</code>
+					<code>    64: [object, object]</code>
+					<code>    96: [object, object, ...]</code>
+					<code>    128: [object]</code>
+					<code>}</code>
+				</pre>
+			</div>
+		</div>
+
+	</section>
+
+	<section class="slide">
+		<h2>Если заглянуть в функцию рисования объекта...</h2>
 		<pre>
-			<code>for (let i = 0; i < 9000; i++) {</code>
-			<code>    result.push(items[i])</code>
-			<code>}</code>
+			<code>const object = getObject(id)</code>
+			<code>const {x, y} = getAnimationFrame(object)</code>
+			<code>const offsetleft = getMapLeft()</code>
+			<code>const offsetTop = getMapTop()</code>
+			<code> </code>
+			<code>context.drawImage(object.texture, x - offsetleft, ...</code>
 		</pre>
 	</section>
 
 	<section class="slide">
-		<h2>Почему бы не добавить их еще больше</h2>
+		<h2>То, все рисование сводится к:</h2>
 		<pre>
-			<code><mark>for</mark> (let y = 0; y < 9000; y++) {</code>
-			<code>    <mark>for</mark> (let x = 0; x < 9000; x++) {</code>
-			<code>        result.push(items[x][y])</code>
-			<code>    }</code>
-			<code>}</code>
+			<code>context.<mark>drawImage</mark>(object.texture, x, y)</code>
 		</pre>
-	</section>
-
-	<section class="slide">
-		<h2>Или лучше сразу сделать доступ к данным проще?</h2>
+		<p>Поэтому мы просто возьмем и запишем их в Render tree!</p>
 		<pre>
-			<code><mark>mapGrid.forEach</mark>((x, y) => {</code>
-			<code>    result.push(<mark>itemsGrid.get</mark>(x, y))</code>
-			<code>}</code>
+			<code>const drawer = <mark>context.drawImage.bind</mark>(context, ...)</code>
+			<code>renderTree.add(x, y, drawer)</code>
 		</pre>
-	</section>
-
-	<section class="slide">
-		<h2>А за удобным апи будет эффективное хранение данных</h2>
-		<p>например в плоском массиве</p>
-		<pre>
-			<code>[123, 343, 35, 0, 391 ... ]</code>
-		</pre>
-
-		<p>или вообще в ArrayBuffer</p>
-		<pre>
-			<code>[01001101010100110001010101010]</code>
-		</pre>
+		<p>И получим отличный <mark>прирост производительности!</mark></p>
 	</section>
 
 	<section class="slide black">
@@ -613,7 +1005,7 @@
 		<br><br>
 		<h2>Promise()</h2>
 		<br><br>
-		<a href="https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/">Подробнее об этом в статье Джека Арчибальда</a>
+		<a href="https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/">Подробнее об этом в статье Джейка Арчибальда</a>
 	</section>
 
 	<section class="slide">
@@ -656,35 +1048,201 @@
 		</pre>
 	</section>
 
-	<section class="slide">
-		<h2>Абстракции делают код лучше</h2>
-		<p>Они позволяют мыслить на новом уровне, решать все более сложные задачи, в коде читается бизнес-логика</p>
+	<section class="slide center">
+		<h2 class="shout shrink"><span class="red">#3</span> Хранение данных</h2>
+	</section>
 
+	<section class="slide center">
+		<h2>Вся карта &mdash; это сетка</h2>
+		<img src="pictures/tiles.png" alt="">
+		<p>* а точнее &mdash; тайлы</p>
+	</section>
+
+	<section class="slide">
+		<h2>Каждый тайл это</h2>
+		<ol>
+			<li>Тип (вода, земля, дерево)</li>
+			<li>Проходимость/стоимость перемещения</li>
+			<li>Наличие события</li>
+			<li>Флаг "Кем занят"</li>
+			<li>...</li>
+		</ol>
+	</section>
+
+	<section class="slide">
+		<h2>Представим это в коде</h2>
 		<pre>
-			<code>const mapGrid = MapModel.grid</code>
-			<code>const activeHero = player.getSelectedHero()</code>
-			<code>const mainTown = player.getMainTown()</code>
-			<code>const path = AStar.getPath(mapGrid, activeHero, mainTown)</code>
+			<code>const map = [</code>
+			<code>    [{...}, {...}, {...}, {...}, {...}, {...}],</code>
+			<code>    [{...}, {...}, {...}, {...}, {...}, {...}],</code>
+			<code>    [{...}, {...}, {...}, {...}, {...}, {...}],</code>
+			<code>    ...</code>
+			<code>]</code>
+			<code>const tile = <mark>map[1][3]</mark></code>
+		</pre>
+	</section>
+
+	<section class="slide black">
+		<img class="cover" src="pictures/pathfinding.png" alt="">
+	</section>
+
+	<section class="slide black">
+		<img class="cover" src="pictures/pathfinding.gif" alt="">
+	</section>
+
+	<section class="slide">
+		<h2>Чтобы получить свойство тайла</h2>
+		<ol>
+			<li>Запросить массив тайлов</li>
+			<li>Запросить массив массива для строки</li>
+			<li>Запросить объект тайла</li>
+			<li>Запросить свойство объекта</li>
+		</ol>
+	</section>
+
+	<section class="slide">
+		<h2>Хранить все в одном месте &mdash; это медленно</h2>
+		<pre>
+			<code>const tile = {</code>
+			<code>    // данные для отрисовки</code>
+			<code>    render: {...},</code>
+			<code>    // данные для поиска пути</code>
+			<code>    passability: {...},</code>
+			<code>    // данные которые нужны <mark>значительно реже</mark></code>
+			<code>    otherStuff: {...},</code>
+			<code>}</code>
 		</pre>
 	</section>
 
 	<section class="slide center">
-		<img class="cover" src="pictures/data-locality-pointer-chasing.png" alt="">
+		<style>
+			.array_map {
+				margin-top: 70px;
+				font-size: 55px;
+				text-align: center;
+			}
+		</style>
+		<h2>Быстрее всего читать данные из массива</h2>
+		<div class="array_map">[🌲, 🌲, 🌳, 🌲, 🌳, 🌲, 🔥, 🌲]</div>
+		<div class="array_map">[0, 1, 0, 1, 1, 1, 0, 1]</div>
+	</section>
+
+	<section class="slide center">
+		<style>
+			.array_big {
+				font-size: 35px;
+				text-align: center;
+			}
+		</style>
+		<h2>Если заранее делать необходимые расчеты</h2>
+		<div class="array_big">tiles [<mark>{...}</mark>, {...}, {...}]</div>
+		<div class="array_big red">+</div>
+		<div class="array_big">objects [<mark>{...}</mark>, {...}, {...}]</div>
+		<div class="array_big red">=</div>
+		<div class="array_big">[<mark>1</mark>, 0, 2]</div>
 	</section>
 
 	<section class="slide">
-		<h2>Первая версия должна быть какой угодно</h2>
-		<p>Лишь бы работало</p>
+		<h2>Делаем разные массивы</h2>
+		<table>
+			<tr>
+				<td>Цикл отрисовки</td>
+				<td>массив функций отрисовки</td>
+			</tr>
+			<tr>
+				<td>Поиск пути (обычный)</td>
+				<td>массив чисел</td>
+			</tr>
+			<tr>
+				<td>Поиск пути (вплавь)</td>
+				<td>массив чисел</td>
+			</tr>
+			<tr>
+				<td>Поиск пути (полет)</td>
+				<td>массив чисел</td>
+			</tr>
+			<tr>
+				<td>Для игровой логики</td>
+				<td>Map объектов c их ID</td>
+			</tr>
+		</table>
+		<p>Остается только своевременное обновление данных из медленных хранилищ в быстрые</p>
+	</section>
+
+	<section class="slide">
+		<h2>Как можно уйти от массивов массивов</h2>
 		<pre>
-			<code>// <mark>TODO</mark>: переписать на графы, когда будет время</code>
-			<code>while (hasChunks) { ... }</code>
-			<code>// <mark>TODO</mark>: создать отдельные классы для этого</code>
-			<code>function Knight(id, name) { ... }</code>
-			<code>// <mark>TODO</mark>: тут почему-то тормозит</code>
-			<code>var f = getFactorial(23423423)</code>
+			<code>const map = [</code>
+			<code>    [{...}, {...}, {...}, {...}, {...}, {...}],</code>
+			<code>    [{...}, {...}, {...}, {...}, {...}, {...}],</code>
+			<code>    [{...}, {...}, {...}, {...}, {...}, {...}],</code>
+			<code>    ...</code>
+			<code>]</code>
 		</pre>
 	</section>
 
+	<section class="slide">
+		<h2>Развернем массив, получаем прирост ~50%</h2>
+		<pre>
+			<code>const map = [{...}, {...}, {...}, {...}, ...]</code>
+			<code> </code>
+			<code>const tile = map[y * width + x]</code>
+		</pre>
+		<img src="/pictures/flat_array_perf.png" alt="" width="100%">
+	</section>
+
+	<section class="slide">
+		<h2>Пробуем ускорить и дальше</h2>
+		<pre>
+			<code>const map = [{...}, {...}, {...}, {...}, ...]</code>
+			<code> </code>
+			<code>const tile = map[y <mark>*</mark> width + x]</code>
+			<code>map.forEach((value, index) => {</code>
+			<code>    let y = 0</code>
+			<code>    let x = (length - (y = <mark>Math.floor</mark>(index <mark>/</mark> width)))</code>
+			<code>})</code>
+		</pre>
+	</section>
+
+	<section class="slide center">
+		<h2>Power of 2!</h2>
+
+		<div class="array_big">
+			2<sup>n</sup> === 2 <mark><<</mark> n
+		</div>
+		<p class="array_big">
+			Math.floor(X \ 2<sup>n</sup>) === X <mark>>></mark> n
+		</p>
+		<img src="/pictures/biwise_perf.png" alt="" width="100%">
+	</section>
+
+	<section class="slide">
+		<h2>Погружаемся в побитовые сдвиги</h2>
+		<pre>
+			<code>const map = [{...}, {...}, {...}, {...}, ...]</code>
+			<code>const <mark>powerOfTwo</mark> = Math.ceil(Math.log2(width))</code>
+			<code> </code>
+			<code>const tile = map[y <mark><< powerOfTwo</mark> + x]</code>
+			<code>map.forEach((value, index) => {</code>
+			<code>    const y = key <mark>>> powerOfTwo</mark></code>
+			<code>    const x = key - (y <mark><< powerOfTwo</mark>)</code>
+			<code>})</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Так получился Grid</h2>
+		<pre>
+			<code>const grid = new Grid(32)</code>
+			<code> </code>
+			<code>const tile = grid.get(x, y)</code>
+			<code>grid.forEach((value, x, y) => {})</code>
+		</pre>
+		<p>
+			- только квадратные сетки <br>
+			- неэффективен для сеток стороной более чем 256
+		</p>
+	</section>
 
 
 	<section class="slide">
@@ -777,73 +1335,6 @@
 		<h2>Прямо как в <a href="https://github.com/Flipboard/react-canvas">react-canvas</a></h2>
 		<img src="pictures/flip_ui.gif" alt="">
 	</section>
-
-	<section class="slide">
-		<style>
-			.columns {
-				display: flex;
-				justify-content: space-between;
-			}
-
-			.bugs {
-				width: 30%;
-				background: #fdcbb8;
-				padding: 10px 25px;
-			}
-
-			.features {
-				width: 30%;
-				background: #91ed8c;
-				padding: 10px 25px;
-			}
-
-			.refactoring {
-				width: 30%;
-				background: #fbff8b;
-				padding: 10px 25px;
-			}
-
-			.columns ol {
-				margin-left: 30px;
-			}
-
-			.columns ol li:before {
-				color: #000;
-			}
-
-		</style>
-		<h2>Как соxранить мотивацию?</h2>
-		<div class="columns">
-			<div class="bugs">
-				<h3>Баги:</h3>
-				<ol>
-					<li>...</li>
-					<li>...</li>
-					<li>...</li>
-					<li>...</li>
-				</ol>
-			</div>
-			<div class="features">
-				<h3>Фичи:</h3>
-				<ol>
-					<li>...</li>
-					<li>...</li>
-					<li>...</li>
-					<li>...</li>
-				</ol>
-			</div>
-			<div class="refactoring">
-				<h3>Рефаторинг:</h3>
-				<ol>
-					<li>...</li>
-					<li>...</li>
-					<li>...</li>
-					<li>...</li>
-				</ol>
-			</div>
-		</div>
-	</section>
-
 
 
 	<section class="slide">
