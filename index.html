@@ -27,6 +27,31 @@
 			width: 50%;
 			height: 100%;
 		}
+
+		.comment,
+		.slide pre .comment {
+			color: rgb(99, 177, 140);
+		}
+
+		.keyword,
+		.slide pre .keyword {
+			color: rgb(159, 95, 226);
+		}
+
+		.string,
+		.slide pre .string {
+			color: rgb(226, 147, 67);
+		}
+
+		.global,
+		.slide pre .global {
+			color: rgb(73, 89, 226);
+		}
+
+		.tag,
+		.slide pre .tag {
+			color: rgb(46, 56, 148);
+		}
 	</style>
 </head>
 <body class="shower list">
@@ -87,7 +112,7 @@
 			}
 			#about small {
 				color: #555;
-				font-size: 18px;
+				font-size: 22px;
 				line-height: 1.2em;
 			}
 		</style>
@@ -95,24 +120,174 @@
 		<h2 class="left-inversed-header">Меня зовут</h2>
 		<h2>Коротаев Александр</h2>
 		<ol>
-			<li>
-				Работаю в Tinkoff.ru
+			<li>Работаю в Tinkoff.ru
 				<br>
 				<small>Делаю внутренние сервисы и кабинет для бизнеса</small>
 			</li>
-			<li>
-				Делаю <a href="http://spb-frontend.ru/podcast/">SPB-Frontend Drinkcast</a>
+			<li>Хожу на митапы 🤓</li>
+			<li>Делаю <a href="http://spb-frontend.ru/podcast/">SPB-Frontend Drinkcast</a>
 				<br>
 				<small>Подкаст o фронтенде за кружкой пива</small>
 			</li>
-			<li>Хожу на митапы 🤓</li>
 		</ol>
 	</section>
 
-	<section class="slide center">
-		<h2>Демка Героев 3 в браузере</h2>
-		<h2><a href="http://homm.lekzd.ru/">http://homm.lekzd.ru/</a></h2>
-		<h2>[тут будет большой QR код]</h2>
+	<section class="slide center black" style="background: url(pictures/podcast/cosmos.jpg) center">
+		<style>
+			@keyframes planet_rotation {
+				0% {
+					transform: rotate(0);
+				}
+				50% {
+					transform: rotate(180deg);
+				}
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+
+			.drinkcast {
+				position: relative;
+				top: -50px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+				height: 100%;
+			}
+
+			.drinkcast_logo {
+				position: absolute;
+				z-index: 1;
+				width: 150px;
+				height: 150px;
+				margin: auto;
+				border-radius: 50%;
+				overflow: hidden;
+			}
+
+			.drinkcast_logo img {
+				width: 100%;
+				height: 100%;
+			}
+
+			.active .people {
+				position: absolute;
+				z-index: 2;
+				width: 200px;
+				height: 200px;
+				margin: auto;
+
+				animation-name: planet_rotation;
+				animation-timing-function: linear;
+				animation-iteration-count: infinite;
+			}
+
+			.people_item {
+				position: absolute;
+				left: 50%;
+				top: calc(50% - 25px);
+				width: 250px;
+				text-align: right;
+				transform-origin: 0 50%;
+			}
+
+			.people_item img {
+				width: auto;
+				height: 50px;
+			}
+		</style>
+		<div class="drinkcast">
+			<div class="drinkcast_logo">
+				<img src="pictures/drinkcast-cover.png" alt="">
+			</div>
+			<div class="people" style="animation-duration: 15s;">
+				<div class="people_item" style="transform: rotate(0deg); width: 306px">
+					<img src="pictures/podcast/0.jpg" alt="">
+				</div>
+				<div class="people_item" style="transform: rotate(13deg); width: 166px">
+					<img src="pictures/podcast/1.jpg" alt="">
+				</div>
+				<div class="people_item" style="transform: rotate(26deg); width: 304px">
+					<img src="pictures/podcast/2.jpg" alt="">
+				</div>
+				<div class="people_item" style="transform: rotate(319deg); width: 172px">
+					<img src="pictures/podcast/3.jpg" alt="">
+				</div>
+				<div class="people_item" style="transform: rotate(332deg); width: 136px">
+					<img src="pictures/podcast/4.jpg" alt="">
+				</div>
+				<div class="people_item" style="transform: rotate(345deg); width: 316px">
+					<img src="pictures/podcast/5.jpg" alt="">
+				</div>
+			</div>
+			<div class="people" style="animation-duration: 20s;">
+				<div class="people_item" style="transform: rotate(79deg); width: 163px">
+					<img src="pictures/podcast/6.jpg" alt="">
+				</div>
+				<div class="people_item" style="transform: rotate(93deg); width: 132px">
+					<img src="pictures/podcast/7.jpg" alt="">
+				</div>
+				<div class="people_item" style="transform: rotate(106deg); width: 201px">
+					<img src="pictures/podcast/8.jpg" alt="">
+				</div>
+				<div class="people_item" style="transform: rotate(226deg); width: 194px">
+					<img src="pictures/podcast/9.jpg" alt="">
+				</div>
+				<div class="people_item" style="transform: rotate(239deg); width: 140px">
+					<img src="pictures/podcast/10.jpg" alt="">
+				</div>
+				<div class="people_item" style="transform: rotate(252deg); width: 186px">
+					<img src="pictures/podcast/11.jpg" alt="">
+				</div>
+				<div class="people_item" style="transform: rotate(266deg); width: 273px">
+					<img src="pictures/podcast/12.jpg" alt="">
+				</div>
+			</div>
+			<div class="people" style="animation-duration: 25s;">
+				<div class="people_item" style="transform: rotate(172deg); width: 132px">
+					<img src="pictures/podcast/13.jpg" alt="">
+				</div>
+				<div class="people_item" style="transform: rotate(186deg); width: 327px">
+					<img src="pictures/podcast/14.jpg" alt="">
+				</div>
+				<div class="people_item" style="transform: rotate(199deg); width: 226px">
+					<img src="pictures/podcast/15.jpg" alt="">
+				</div>
+				<div class="people_item" style="transform: rotate(212deg); width: 298px">
+					<img src="pictures/podcast/16.jpg" alt="">
+				</div>
+				<div class="people_item" style="transform: rotate(119deg); width: 152px">
+					<img src="pictures/podcast/17.jpg" alt="">
+				</div>
+				<div class="people_item" style="transform: rotate(133deg); width: 209px">
+					<img src="pictures/podcast/18.jpg" alt="">
+				</div>
+				<div class="people_item" style="transform: rotate(146deg); width: 268px">
+					<img src="pictures/podcast/19.jpg" alt="">
+				</div>
+				<div class="people_item" style="transform: rotate(159deg); width: 217px">
+					<img src="pictures/podcast/20.jpg" alt="">
+				</div>
+			</div>
+			<div class="people" style="animation-duration: 30s;">
+				<div class="people_item" style="transform: rotate(279deg); width: 281px">
+					<img src="pictures/podcast/21.jpg" alt="">
+				</div>
+				<div class="people_item" style="transform: rotate(292deg); width: 252px">
+					<img src="pictures/podcast/22.jpg" alt="">
+				</div>
+				<div class="people_item" style="transform: rotate(305deg); width: 146px">
+					<img src="pictures/podcast/23.jpg" alt="">
+				</div>
+				<div class="people_item" style="transform: rotate(39deg); width: 230px">
+					<img src="pictures/podcast/24.jpg" alt="">
+				</div>
+				<div class="people_item" style="transform: rotate(53deg); width: 223px">
+					<img src="pictures/podcast/25.jpg" alt="">
+				</div>
+			</div>
+		</div>
 	</section>
 
 	<section class="slide">
@@ -126,14 +301,6 @@
 		</ol>
 		<p>Но никто из них не доделывает до конца и не стремится объединяться</p>
 	</section>
-
-	<!--<section class="slide">-->
-		<!--<h2>Игра мечты, первая игра</h2>-->
-		<!--<ol>-->
-			<!--<li>Большинство делает игру "три-в-ряд"</li>-->
-			<!--<li>Тут немного про портрет типичного игродела</li>-->
-		<!--</ol>-->
-	<!--</section>-->
 
 	<section class="slide">
 		<h2>Какие цели ставил</h2>
@@ -187,70 +354,70 @@
 	<section class="slide">
 		<h2>А если представить это ввиде кода, то</h2>
 		<pre>
-			<code>const me = {name: 'Alex', left: 0}</code>
+			<code><span class="keyword">const</span> me <span class="global">=</span> {name: <span class="string">'Alex'</span>, left: <span class="string">0</span>}</code>
 			<code>...</code>
-			<code>setInterval(() => update(), 1000)</code>
+			<code><span class="global">setInterval</span>(() <span class="keyword">=></span> update(), <span class="string">1000</span>)</code>
 			<code>...</code>
-			<code>window.addEventListener('keyup', () => me.left++)</code>
+			<code><span class="global">window</span>.addEventListener(<span class="string">'keyup'</span>, () <span class="keyword">=></span> me.left++)</code>
 			<code>...</code>
-			<code>requestAnimationFrame(() => draw())</code>
+			<code><span class="global">requestAnimationFrame</span>(() <span class="keyword">=></span> draw())</code>
 		</pre>
 	</section>
 
 	<section class="slide">
 		<h2>Модель</h2>
 		<pre>
-			<code><mark>const me = {name: 'Alex', left: 0}</mark></code>
+			<code><mark><span class="keyword">const</span> me <span class="global">=</span> {name: <span class="string">'Alex'</span>, left: <span class="string">0</span>}</mark></code>
 			<code>...</code>
-			<code>setInterval(() => update(), 1000)</code>
+			<code><span class="global">setInterval</span>(() <span class="keyword">=></span> update(), <span class="string">1000</span>)</code>
 			<code>...</code>
-			<code>window.addEventListener('keyup', () => me.left++)</code>
+			<code><span class="global">window</span>.addEventListener(<span class="string">'keyup'</span>, () <span class="keyword">=></span> me.left++)</code>
 			<code>...</code>
-			<code>requestAnimationFrame(() => draw())</code>
+			<code><span class="global">requestAnimationFrame</span>(() <span class="keyword">=></span> draw())</code>
 		</pre>
 	</section>
 
 	<section class="slide">
 		<h2>Game loop</h2>
 		<pre>
-			<code>const me = {name: 'Alex', left: 0}</code>
+			<code><span class="keyword">const</span> me <span class="global">=</span> {name: <span class="string">'Alex'</span>, left: <span class="string">0</span>}</code>
 			<code>...</code>
-			<code><mark>setInterval(() => update(), 1000)</mark></code>
+			<code><mark><span class="global">setInterval</span>(() <span class="keyword">=></span> update(), <span class="string">1000</span>)</mark></code>
 			<code>...</code>
-			<code>window.addEventListener('keyup', () => me.left++)</code>
+			<code><span class="global">window</span>.addEventListener(<span class="string">'keyup'</span>, () <span class="keyword">=></span> me.left++)</code>
 			<code>...</code>
-			<code>requestAnimationFrame(() => draw())</code>
+			<code><span class="global">requestAnimationFrame</span>(() <span class="keyword">=></span> draw())</code>
 		</pre>
 	</section>
 
 	<section class="slide">
 		<h2>Обрабтка ввода</h2>
 		<pre>
-			<code>const me = {name: 'Alex', left: 0}</code>
+			<code><span class="keyword">const</span> me <span class="global">=</span> {name: <span class="string">'Alex'</span>, left: <span class="string">0</span>}</code>
 			<code>...</code>
-			<code>setInterval(() => update(), 1000)</code>
+			<code><span class="global">setInterval</span>(() <span class="keyword">=></span> update(), <span class="string">1000</span>)</code>
 			<code>...</code>
-			<code><mark>window.addEventListener('keyup', () => me.left++)</mark></code>
+			<code><mark><span class="global">window</span>.addEventListener(<span class="string">'keyup'</span>, () <span class="keyword">=></span> me.left++)</mark></code>
 			<code>...</code>
-			<code>requestAnimationFrame(() => draw())</code>
+			<code><span class="global">requestAnimationFrame</span>(() <span class="keyword">=></span> draw())</code>
 		</pre>
 	</section>
 
 	<section class="slide">
 		<h2>Отрисовка</h2>
 		<pre>
-			<code>const me = {name: 'Alex', left: 0}</code>
+			<code><span class="keyword">const</span> me <span class="global">=</span> {name: <span class="string">'Alex'</span>, left: <span class="string">0</span>}</code>
 			<code>...</code>
-			<code>setInterval(() => update(), 1000)</code>
+			<code><span class="global">setInterval</span>(() <span class="keyword">=></span> update(), <span class="string">1000</span>)</code>
 			<code>...</code>
-			<code>window.addEventListener('keyup', () => me.left++)</code>
+			<code><span class="global">window</span>.addEventListener(<span class="string">'keyup'</span>, () <span class="keyword">=></span> me.left++)</code>
 			<code>...</code>
-			<code><mark>requestAnimationFrame(() => draw())</mark></code>
+			<code><mark><span class="global">requestAnimationFrame</span>(() <span class="keyword">=></span> draw())</mark></code>
 		</pre>
 	</section>
 
 	<section class="slide">
-		<h2>Подробне про gamedev на JS в книге
+		<h2>Подробнее про gamedev на JS в книге
 			<br><a href="http://bakhirev.biz/book/">Сюрреализм на JavaScript</a>
 		</h2>
 
@@ -364,26 +531,26 @@
 	<section class="slide">
 		<h2>Canvas это не DOM</h2>
 		<pre>
-			<code>const ctx = canvas.getContext('2d')</code>
+			<code><span class="keyword">const</span> ctx <span class="global">=</span> canvas.getContext(<span class="string">'2d'</span>)</code>
 			<code> </code>
-			<code>ctx.drawImage(hero, 0, 0)</code>
-			<code><mark>ctx.clearRect(0, 0, 100, 100)</mark></code>
-			<code>ctx.drawImage(hero, 100, 0)</code>
-			<code><mark>ctx.clearRect(0, 0, 100, 100)</mark></code>
-			<code>ctx.drawImage(hero, 200, 0)</code>
+			<code>ctx.drawImage(hero, <span class="string">0</span>, <span class="string">0</span>)</code>
+			<code><mark>ctx.clearRect(<span class="string">0</span>, <span class="string">0</span>, <span class="string">100</span>, <span class="string">100</span>)</mark></code>
+			<code>ctx.drawImage(hero, <span class="string">100</span>, <span class="string">0</span>)</code>
+			<code><mark>ctx.clearRect(<span class="string">0</span>, <span class="string">0</span>, <span class="string">100</span>, <span class="string">100</span>)</mark></code>
+			<code>ctx.drawImage(hero, <span class="string">200</span>, <span class="string">0</span>)</code>
 		</pre>
 	</section>
 
 	<section class="slide">
 		<h2>А если под героем трава...</h2>
 		<pre>
-			<code>const ctx = canvas.getContext('2d')</code>
+			<code><span class="keyword">const</span> ctx <span class="global">=</span> canvas.getContext(<span class="string">'2d'</span>)</code>
 			<code> </code>
-			<code>ctx.drawImage(hero, 0, 0)</code>
-			<code><mark>ctx.drawImage(grass, 0, 0)</mark></code>
-			<code>ctx.drawImage(hero, 100, 0)</code>
-			<code><mark>ctx.drawImage(grass, 100, 0)</mark></code>
-			<code>ctx.drawImage(hero, 200, 0)</code>
+			<code>ctx.drawImage(hero, <span class="string">0</span>, <span class="string">0</span>)</code>
+			<code><mark>ctx.drawImage(grass, <span class="string">0</span>, <span class="string">0</span>)</mark></code>
+			<code>ctx.drawImage(hero, <span class="string">100</span>, <span class="string">0</span>)</code>
+			<code><mark>ctx.drawImage(grass, <span class="string">100</span>, <span class="string">0</span>)</mark></code>
+			<code>ctx.drawImage(hero, <span class="string">200</span>, <span class="string">0</span>)</code>
 		</pre>
 	</section>
 
@@ -489,9 +656,9 @@
 	<section class="slide">
 		<h2>Я просто использую 3 &lt;canvas&gt;</h2>
 		<pre>
-			<code>&lt;canvas id="terrain"&gt;</code>
-			<code>&lt;canvas id="objects"&gt;</code>
-			<code>&lt;canvas id="ui"&gt;</code>
+			<code><span class="tag">&lt;canvas</span> id=<span class="string">"terrain"</span><span class="tag">&gt;</span></code>
+			<code><span class="tag">&lt;canvas</span> id=<span class="string">"objects"</span><span class="tag">&gt;</span></code>
+			<code><span class="tag">&lt;canvas</span> id=<span class="string">"ui"</span><span class="tag">&gt;</span></code>
 		</pre>
 	</section>
 
@@ -815,11 +982,11 @@
 			</div>
 			<div>
 				<pre>
-					<code>const renderTree = {</code>
-					<code>    32: [object, object, ...]</code>
-					<code>    64: [object, object]</code>
-					<code>    96: [object, object, ...]</code>
-					<code>    128: [object]</code>
+					<code><span class="keyword">const</span> renderTree <span class="global">=</span> {</code>
+					<code>    <span class="global">32</span>: [object, object, ...]</code>
+					<code>    <span class="global">64</span>: [object, object]</code>
+					<code>    <span class="global">96</span>: [object, object, ...]</code>
+					<code>    <span class="global">128</span>: [object]</code>
 					<code>}</code>
 				</pre>
 			</div>
@@ -830,12 +997,12 @@
 	<section class="slide">
 		<h2>Если заглянуть в функцию рисования объекта...</h2>
 		<pre>
-			<code>const object = getObject(id)</code>
-			<code>const {x, y} = getAnimationFrame(object)</code>
-			<code>const offsetleft = getMapLeft()</code>
-			<code>const offsetTop = getMapTop()</code>
+			<code><span class="keyword">const</span> object <span class="global">=</span> getObject(id)</code>
+			<code><span class="keyword">const</span> {x, y} <span class="global">=</span> getAnimationFrame(object)</code>
+			<code><span class="keyword">const</span> offsetleft <span class="global">=</span> getMapLeft()</code>
+			<code><span class="keyword">const</span> offsetTop <span class="global">=</span> getMapTop()</code>
 			<code> </code>
-			<code>context.drawImage(object.texture, x - offsetleft, ...</code>
+			<code>context.drawImage(object.texture, x <span class="global">-</span> offsetleft, ...</code>
 		</pre>
 	</section>
 
@@ -846,7 +1013,7 @@
 		</pre>
 		<p>Поэтому мы просто возьмем и запишем их в Render tree!</p>
 		<pre>
-			<code>const drawer = <mark>context.drawImage.bind</mark>(context, ...)</code>
+			<code><span class="keyword">const</span> drawer <span class="global">=</span> <mark>context.drawImage.bind</mark>(context, ...)</code>
 			<code>renderTree.add(x, y, drawer)</code>
 		</pre>
 		<p>И получим отличный <mark>прирост производительности!</mark></p>
@@ -950,7 +1117,7 @@
 	</section>
 
 	<section class="slide center">
-		<h2>Минутка <mark>герое</mark>ометрии 🏇</h2>
+		<h2>Минутка <mark>герое</mark>метрии 🏇</h2>
 		<div class="grass">
 			<table class="grass_table">
 				<tr>
@@ -993,28 +1160,63 @@
 	</section>
 
 	<section class="slide center">
-		<h2><mark>setTimeout</mark>(() => setTimeout())</h2>
-		<h2>vs</h2>
-		<h2><mark>setInterval</mark>()</h2>
-		<h2>vs</h2>
-		<h2><mark>requestAnimationFrame</mark>()</h2>
+		<div class="doubleColumns">
+			<div style="font-size: 30px">
+				<h3><mark>setTimeout</mark>(() => setTimeout())</h3>
+				<h3>vs</h3>
+				<h3><mark>setInterval</mark>()</h3>
+				<h3>vs</h3>
+				<h3><mark>requestAnimationFrame</mark>()</h3>
+			</div>
+			<div>
+				<div class="task">Задача</div>
+				<div class="task">setTimeout()</div>
+				<div class="task">Задача</div>
+				<div class="task">setTimeout()</div>
+			</div>
+		</div>
 	</section>
 
 	<section class="slide center">
-		<h2>Задачи < <mark>микрозадачи</mark></h2>
-		<br><br>
-		<h2>Promise()</h2>
-		<br><br>
+		<style>
+			.task {
+				width: 250px;
+				margin: 10px auto;
+				padding: 10px;
+				border: 4px dashed #ffc554;
+				background: rgba(255, 197, 84, 0.51);
+			}
+			.microtask {
+				height: 60px;
+				border: 4px dashed #ff813a;
+				background: rgba(255, 91, 18, 0.51);
+			}
+		</style>
+
+		<div class="doubleColumns">
+			<div>
+				<br>
+				<br>
+				<h2>Promise()</h2>
+			</div>
+			<div>
+				<div class="task">Задача</div>
+				<div class="task">Задача
+					<div class="microtask">Микрозадача</div>
+				</div>
+			</div>
+		</div>
+
 		<a href="https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/">Подробнее об этом в статье Джейка Арчибальда</a>
 	</section>
 
 	<section class="slide">
 		<h2>Возьмем все и сразу</h2>
 		<pre>
-			<code>new Promise(resolve => {</code>
-			<code>    setTimeout(() => {</code>
+			<code><span class="keyword">new</span> <span class="global">Promise</span>(resolve <span class="keyword">=></span> {</code>
+			<code>    <span class="global">setTimeout</span>(() <span class="keyword">=></span> {</code>
 			<code>        <mark>// расчеты для анимации</mark></code>
-			<code>        requestAnimationFrame(() => <mark>/* рисование */</mark>)</code>
+			<code>        <span class="global">requestAnimationFrame</span>(() <span class="keyword">=></span> <mark>/* рисование */</mark>)</code>
 			<code>        resolve()</code>
 			<code>    })</code>
 			<code>})</code>
@@ -1037,12 +1239,12 @@
 	<section class="slide">
 		<h2>А лучше сразу декларативную абстракцию</h2>
 		<pre>
-			<code>AsyncSequence([</code>
+			<code><span class="global">AsyncSequence</span>([</code>
 			<code>    startAnimation, [</code>
 			<code>        step</code>
 			<code>        step</code>
-			<code>        ...</code>
-			<code>        doAction],</code>
+			<code>        ...],</code>
+			<code>    doAction,</code>
 			<code>    endAnimation</code>
 			<code>])</code>
 		</pre>
@@ -1072,13 +1274,13 @@
 	<section class="slide">
 		<h2>Представим это в коде</h2>
 		<pre>
-			<code>const map = [</code>
+			<code><span class="keyword">const</span> map <span class="global">=</span> [</code>
 			<code>    [{...}, {...}, {...}, {...}, {...}, {...}],</code>
 			<code>    [{...}, {...}, {...}, {...}, {...}, {...}],</code>
 			<code>    [{...}, {...}, {...}, {...}, {...}, {...}],</code>
 			<code>    ...</code>
 			<code>]</code>
-			<code>const tile = <mark>map[1][3]</mark></code>
+			<code><span class="keyword">const</span> tile <span class="global">=</span> <mark>map[1][3]</mark></code>
 		</pre>
 	</section>
 
@@ -1103,12 +1305,12 @@
 	<section class="slide">
 		<h2>Хранить все в одном месте &mdash; это медленно</h2>
 		<pre>
-			<code>const tile = {</code>
-			<code>    // данные для отрисовки</code>
+			<code><span class="keyword">const</span> tile <span class="global">=</span> {</code>
+			<code class="comment">    // данные для отрисовки</code>
 			<code>    render: {...},</code>
-			<code>    // данные для поиска пути</code>
+			<code class="comment">    // данные для поиска пути</code>
 			<code>    passability: {...},</code>
-			<code>    // данные которые нужны <mark>значительно реже</mark></code>
+			<code class="comment">    // данные которые нужны <mark>значительно реже</mark></code>
 			<code>    otherStuff: {...},</code>
 			<code>}</code>
 		</pre>
@@ -1116,15 +1318,29 @@
 
 	<section class="slide center">
 		<style>
-			.array_map {
+			.terrain_map {
 				margin-top: 70px;
 				font-size: 55px;
 				text-align: center;
 			}
+			.terrain_map b {
+				display: inline-block;
+				width: 55px;
+				background: #e5c793;
+			}
+			.pathfind_map {
+				margin-top: 70px;
+				font-size: 55px;
+				text-align: center;
+			}
+			.pathfind_map b {
+				display: inline-block;
+				width: 55px;
+			}
 		</style>
 		<h2>Быстрее всего читать данные из массива</h2>
-		<div class="array_map">[🌲, 🌲, 🌳, 🌲, 🌳, 🌲, 🔥, 🌲]</div>
-		<div class="array_map">[0, 1, 0, 1, 1, 1, 0, 1]</div>
+		<div class="terrain_map">[<b>🌲</b>,<b>&nbsp;</b>,<b>🌳</b>,<b>🌲</b>,<b>&nbsp;</b>,<b>&nbsp;</b>,<b>🔥</b>,<b>🌲</b>]</div>
+		<div class="pathfind_map">[<b>1</b>,<b>0</b>,<b>1</b>,<b>1</b>,<b>0</b>,<b>0</b>,<b>1</b>,<b>1</b>]</div>
 	</section>
 
 	<section class="slide center">
@@ -1150,15 +1366,15 @@
 				<td>массив функций отрисовки</td>
 			</tr>
 			<tr>
-				<td>Поиск пути (обычный)</td>
+				<td>Поиск пути</td>
 				<td>массив чисел</td>
 			</tr>
 			<tr>
-				<td>Поиск пути (вплавь)</td>
-				<td>массив чисел</td>
+				<td>Ассоциация объектов к тайлам</td>
+				<td>массив строк</td>
 			</tr>
 			<tr>
-				<td>Поиск пути (полет)</td>
+				<td>Дополнительные свойства тайлов</td>
 				<td>массив чисел</td>
 			</tr>
 			<tr>
@@ -1172,7 +1388,7 @@
 	<section class="slide">
 		<h2>Как можно уйти от массивов массивов</h2>
 		<pre>
-			<code>const map = [</code>
+			<code><span class="keyword">const</span> map <span class="global">=</span> [</code>
 			<code>    [{...}, {...}, {...}, {...}, {...}, {...}],</code>
 			<code>    [{...}, {...}, {...}, {...}, {...}, {...}],</code>
 			<code>    [{...}, {...}, {...}, {...}, {...}, {...}],</code>
@@ -1184,22 +1400,24 @@
 	<section class="slide">
 		<h2>Развернем массив, получаем прирост ~50%</h2>
 		<pre>
-			<code>const map = [{...}, {...}, {...}, {...}, ...]</code>
+			<code><span class="keyword">const</span> map <span class="global">=</span> [{...}, {...}, {...}, {...}, ...]</code>
 			<code> </code>
-			<code>const tile = map[y * width + x]</code>
+			<code><span class="keyword">const</span> tile <span class="global">=</span> map[y <span class="global">*</span> width <span class="global">+</span> x]</code>
 		</pre>
-		<img src="/pictures/flat_array_perf.png" alt="" width="100%">
+		<a href="https://jsperf.com/2d-array-of-numbers/2" target="_blank">
+			<img src="/pictures/flat_array_perf.png" alt="" width="100%">
+		</a>
 	</section>
 
 	<section class="slide">
 		<h2>Пробуем ускорить и дальше</h2>
 		<pre>
-			<code>const map = [{...}, {...}, {...}, {...}, ...]</code>
+			<code><span class="keyword">const</span> map <span class="global">=</span> [{...}, {...}, {...}, {...}, ...]</code>
 			<code> </code>
-			<code>const tile = map[y <mark>*</mark> width + x]</code>
-			<code>map.forEach((value, index) => {</code>
-			<code>    let y = 0</code>
-			<code>    let x = (length - (y = <mark>Math.floor</mark>(index <mark>/</mark> width)))</code>
+			<code><span class="keyword">const</span> tile <span class="global">=</span> map[y <mark>*</mark> width <span class="global">+</span> x]</code>
+			<code>map.forEach((value, index) <span class="keyword">=></span> {</code>
+			<code>    <span class="keyword">const</span> y <span class="global">=</span> <mark>Math.floor</mark>(index <mark>/</mark> width)</code>
+			<code>    <span class="keyword">const</span> x <span class="global">=</span> index <span class="global">-</span> (y <mark>*</mark> width)</code>
 			<code>})</code>
 		</pre>
 	</section>
@@ -1208,35 +1426,42 @@
 		<h2>Power of 2!</h2>
 
 		<div class="array_big">
-			2<sup>n</sup> === 2 <mark><<</mark> n
+			2<sup>n</sup> <span class="global">===</span> 2 <mark><<</mark> n
 		</div>
 		<p class="array_big">
-			Math.floor(X \ 2<sup>n</sup>) === X <mark>>></mark> n
+			<span class="global">Math</span>.floor(X <span class="global">/</span> 2<sup>n</sup>) <span class="global">===</span> X <mark>>></mark> n
 		</p>
-		<img src="/pictures/biwise_perf.png" alt="" width="100%">
+		<a href="https://jsperf.com/division-vs-bit-right-shift/3" target="_blank">
+			<img src="/pictures/biwise_perf.png" alt="" width="100%">
+		</a>
 	</section>
 
 	<section class="slide">
 		<h2>Погружаемся в побитовые сдвиги</h2>
 		<pre>
-			<code>const map = [{...}, {...}, {...}, {...}, ...]</code>
-			<code>const <mark>powerOfTwo</mark> = Math.ceil(Math.log2(width))</code>
+			<code><span class="keyword">const</span> map <span class="global">=</span> [{...}, {...}, {...}, {...}, ...]</code>
+			<code><span class="keyword">const</span> <mark>powerOfTwo</mark> <span class="global">=</span> <span class="global">Math</span>.ceil(<span class="global">Math</span>.log2(width))</code>
 			<code> </code>
-			<code>const tile = map[y <mark><< powerOfTwo</mark> + x]</code>
-			<code>map.forEach((value, index) => {</code>
-			<code>    const y = key <mark>>> powerOfTwo</mark></code>
-			<code>    const x = key - (y <mark><< powerOfTwo</mark>)</code>
+			<code><span class="keyword">const</span> tile <span class="global">=</span> map[y <mark><< powerOfTwo</mark> <span class="global">+</span> x]</code>
+			<code>map.forEach((value, index) <span class="keyword">=></span> {</code>
+			<code>    <span class="keyword">const</span> y <span class="global">=</span> index <mark>>> powerOfTwo</mark></code>
+			<code>    <span class="keyword">const</span> x <span class="global">=</span> index - (y <mark><< powerOfTwo</mark>)</code>
 			<code>})</code>
 		</pre>
+	</section>
+
+	<section class="slide center">
+		<h2>Степень двойки в видеокарте</h2>
+		<img src="pictures/mipmaps.jpg" alt="">
 	</section>
 
 	<section class="slide">
 		<h2>Так получился Grid</h2>
 		<pre>
-			<code>const grid = new Grid(32)</code>
+			<code><span class="keyword">const</span> grid = <span class="keyword">new</span> Grid(<span class="string">32</span>)</code>
 			<code> </code>
-			<code>const tile = grid.get(x, y)</code>
-			<code>grid.forEach((value, x, y) => {})</code>
+			<code><span class="keyword">const</span> tile = grid.get(x, y)</code>
+			<code>grid.forEach((value, x, y) <span class="keyword">=></span> {})</code>
 		</pre>
 		<p>
 			- только квадратные сетки <br>
@@ -1244,45 +1469,29 @@
 		</p>
 	</section>
 
-
 	<section class="slide">
-		<h2 class="shout shrink"><span class="red">#3</span> Взять и переписать!</h2>
+		<h2 class="shout shrink"><span class="red">#3</span> UI на Canvas</h2>
 	</section>
 
 	<section class="slide">
-		<img class="cover" src="pictures/refactoring.png" alt="">
-	</section>
-
-	<section class="slide">
-		<h2>Я несколько раз устраивал глобальные рефакторинги</h2>
-		<ol>
-			<li>Функции -> ES6 классы</li>
-			<li>RequireJS -> ES6 импорты</li>
-			<li>CoffeeScript -> ES6</li>
-			<li>ES6 -> TypeScript</li>
-			<li>Command Pattern -> Стейты</li>
-		</ol>
-	</section>
-
-	<section class="slide">
-		<h2>Напрмер, в начале я создавал UI-элементы так</h2>
+		<h2>В начале я создавал UI-элементы так</h2>
 		<pre>
-			<code>const <mark>okButton</mark> = new Buttton(0, 10, 'Ok')</code>
-			<code><mark>okButton</mark>.addEventListener('click', () => { ... })</code>
-			<code>const <mark>cancellButton</mark> = new Buttton(0, 10, 'Cancel')</code>
-			<code><mark>cancellButton</mark>.addEventListener('click', () => { ... })</code>
+			<code><span class="keyword">const</span> <mark>okButton</mark> = <span class="keyword">new</span> <span class="global">Buttton</span>(<span class="string">0</span>, <span class="string">10</span>, <span class="string">'Ok'</span>)</code>
+			<code><mark>okButton</mark>.addEventListener(<span class="string">'click'</span>, () <span class="keyword">=></span> { ... })</code>
+			<code><span class="keyword">const</span> <mark>cancellButton</mark> = <span class="keyword">new</span> <span class="global">Buttton</span>(<span class="string">0</span>, <span class="string">10</span>, <span class="string">'Cancel'</span>)</code>
+			<code><mark>cancellButton</mark>.addEventListener(<span class="string">'click'</span>, () <span class="keyword">=></span> { ... })</code>
 		</pre>
 	</section>
 
 	<section class="slide">
 		<h2>Кол-во параметров росло и росло...</h2>
 		<pre>
-			<code>const <mark>okButton</mark> = new Buttton({</code>
-			<code>    left: 0,</code>
-			<code>    top: 10,</code>
-			<code>    onClick: () => { ... }</code>
+			<code><span class="keyword">const</span> <mark>okButton</mark> <span class="global">=</span> <span class="keyword">new</span> <span class="global">Buttton</span>({</code>
+			<code>    left: <span class="string">0</span>,</code>
+			<code>    top: <span class="string">10</span>,</code>
+			<code>    onClick: () <span class="keyword">=></span> { ... }</code>
 			<code>})</code>
-			<code>const <mark>cancellButton</mark> = new Buttton({...})</code>
+			<code><span class="keyword">const</span> <mark>cancellButton</mark> = <span class="keyword">new</span> <span class="global">Buttton</span>({...})</code>
 		</pre>
 	</section>
 
@@ -1291,11 +1500,11 @@
 		<pre>
 			<code>[</code>
 			<code>    {</code>
-			<code>         id: <mark>'okButton'</mark>,</code>
+			<code>         id: <mark class="string">'okButton'</mark>,</code>
 			<code>         options: {</code>
-			<code>             left: 0,</code>
-			<code>             top: 10,</code>
-			<code>             onClick: () => { ... }</code>
+			<code>             left: <span class="string">0</span>,</code>
+			<code>             top: <span class="string">10</span>,</code>
+			<code>             onClick: () <span class="keyword">=></span> { ... }</code>
 			<code>         },</code>
 			<code>    },</code>
 			<code>...</code>
@@ -1306,29 +1515,28 @@
 	<section class="slide">
 		<h2>Но далее я вспомнил, что есть XML</h2>
 		<pre>
-			<code>&lt;button id="<mark>okButton</mark>"</code>
-			<code>        left="0"</code>
-			<code>        top="10"</code>
-			<code>        onClick="doSomething()"</code>
-			<code>/&gt;</code>
+			<code><span class="tag">&lt;button</span> id=<span class="string">"<mark>okButton</mark>"</span></code>
+			<code>        left=<span class="string">"0"</span></code>
+			<code>        top=<span class="string">"10"</span></code>
+			<code>        onClick=<span class="string">"<mark>{doSomething()}</mark>"</span></code>
+			<code><span class="tag">/&gt;</span></code>
 		</pre>
 		<p>При сборке он собирается в JSON с предыдущего слайда</p>
 	</section>
 
 	<section class="slide">
 		<pre>
-			<code>&lt;group id="main" ... &gt;</code>
-			<code>    &lt;group id="header" ... &gt;</code>
-			<code>        &lt;text-block ... /&gt;</code>
-			<code>        &lt;button ... /&gt;</code>
-			<code>    &lt;/group&gt;</code>
-			<code>    &lt;group id="footer" ... &gt;</code>
-			<code>        &lt;any-component ... /&gt;</code>
-			<code>        &lt;button ... /&gt;</code>
-			<code>    &lt;/group&gt;</code>
-			<code>&lt;/group&gt;</code>
+			<code><span class="tag">&lt;group</span> id=<span class="string">"main"</span> ... <span class="tag">&gt;</span></code>
+			<code>    <span class="tag">&lt;group</span> id=<span class="string">"header"</span> ... <span class="tag">&gt;</span></code>
+			<code>        <span class="tag">&lt;text-block</span> ... <span class="tag">/&gt;</span></code>
+			<code>        <span class="tag">&lt;button</span> ... <span class="tag">/&gt;</span></code>
+			<code>    <span class="tag">&lt;/group</span><span class="tag">&gt;<span></code>
+			<code>    <span class="tag">&lt;group</span> id=<span class="string">"footer"</span> ... <span class="tag">&gt;</span></code>
+			<code>        <span class="tag">&lt;any-component</span> ... <span class="tag">/&gt;</span></code>
+			<code>        <span class="tag">&lt;button</span> ... <span class="tag">/&gt;</span></code>
+			<code>    <span class="tag">&lt;/group</span><span class="tag">&gt;</span></code>
+			<code><span class="tag">&lt;/group</span><span class="tag">&gt;</span></code>
 		</pre>
-		<p>При сборке он собирается в JSON с предыдущего слайда</p>
 	</section>
 
 	<section class="slide center">
@@ -1338,11 +1546,128 @@
 
 
 	<section class="slide">
+		<h2 class="shout shrink">Как это все работает</h2>
+	</section>
+
+	<section class="slide center">
+		<img src="pictures/blocks.gif" style="height: 500px; position: relative; top: -70px;" alt="">
+	</section>
+
+	<section class="slide center">
+		<h2>Например, сбор ресурсов</h2>
+		<img src="/pictures/go_to_reso.png" alt="">
+	</section>
+
+	<section class="slide center">
+		<h2>#1 Поиск пути &mdash; алгоритм <a href="https://ru.wikipedia.org/wiki/A*">A*</a></h2>
+		<div class="doubleColumns">
+			<div>
+				<img src="/pictures/astar.png" alt="" height="350px">
+			</div>
+			<div>
+				<img src="/pictures/astar 2.png" alt="" height="350px">
+			</div>
+		</div>
+	</section>
+
+	<section class="slide center">
+		<h2>#2 Анимация движения</h2>
+		<p>После каждого шага нужно обновлять позицию героя в дереве отрисовки</p>
+		<div class="doubleColumns">
+			<div>
+				<img src="/pictures/render_tree.png" alt="" height="300px"></div>
+			<div>
+				<img src="/pictures/render_tree_after.png" alt="" height="300px"></div>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>#3 Проверка в конечной точке</h2>
+		<div class="doubleColumns">
+			<div>
+				<ol>
+					<li>
+						Делаем запрос к карте и получаем ID объектов в этой точке
+					</li>
+					<li>
+						Они отсортированы как: действия, непроходимые и проходимые
+					</li>
+					<li>
+						Берем первый объект по ID
+					</li>
+					<li>
+						Проверяем можно ли заходить на объект для активации действия
+					</li>
+				</ol>
+			</div>
+			<div>
+				<img src="/pictures/go_to_reso.png" alt="" height="300px">
+			</div>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>#4 Действие с объектом</h2>
+		<pre>
+			<code><span class="keyword">const</span> objectInAction <span class="global">=</span> <span class="global">Objects</span>.get(ID)</code>
+			<code><span class="keyword">const</span> hero <span class="global">=</span> <span class="global">Player</span>.activeHero</code>
+			<code>objectInAction.events.dispatch(<span class="string">'action'</span>, hero)</code>
+			<code class="comment">...</code>
+			<code><span class="global">this</span>.events.on(<span class="string">'action'</span>, hero <span class="keyword">=></span> {</code>
+			<code>    hero.owner.resources.set(<span class="string">'gems'</span>, <span class="global">this</span>.value)</code>
+			<code>    <span class="global">this</span>.remove()</code>
+			<code>})</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>#5 Удаление объекта</h2>
+		<ol>
+			<li>Удаляем отрисовку из рендера</li>
+			<li>Удаляем из массивов для поиска пути</li>
+			<li>Удаляем из ассоциативного массива с коодинатами</li>
+			<li>Удаляем обработчики событий</li>
+			<li>Удаляем из массива объектов</li>
+			<li>Обновляем мини-карту, уже без этого объекта</li>
+			<li>Рассылаем событие об удалении этого объекта из текущего стейта</li>
+		</ol>
+	</section>
+
+	<section class="slide">
+		<h2>Как обновлять все эти массивы быстрее?</h2>
+		<p>Доля динамических объектов около 10% от всех. <br> Так почему бы не сэкономить на расчетах:</p>
+		<pre>
+			<code class="comment">// только при загрузке карты, содержит много данных</code>
+			<code><span class="keyword">const</span> baseGrid <span class="global">=</span> <span class="keyword">new</span> Grid(mapSize)</code>
+			<code class="comment">// обновляется намного чаще, потому содержит мало данных</code>
+			<code><span class="keyword">const</span> dynamicGrid <span class="global">=</span> <span class="keyword">new</span> Grid(mapSize)</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Как устроены объекты</h2>
+		<pre>
+			<code class="comment">// Объект содержит гарнизон и может быть атакован</code>
+			<code><i>@Mixin(Attacable)</i></code>
+			<code><span class="keyword">class</span> TownObject <span class="keyword">extends</span> OwnershipObject {...}</code>
+			<code class="comment">// Содержит все для отрисовки флажка, его смены и т.п.</code>
+			<code><span class="keyword">class</span> OwnershipObject <span class="keyword">extends</span> MapObject {...}</code>
+			<code class="comment">// Содержит все базовые поля для объекта карты</code>
+			<code><span class="keyword">class</span> MapObject {...}</code>
+		</pre>
+	</section>
+
+
+	<section class="slide">
 		<h2 class="shout shrink">Выводы</h2>
 	</section>
 
 	<section class="slide black">
 		<img class="cover" src="pictures/battle.jpg" alt="">
+	</section>
+
+	<section class="slide">
+		<img class="cover" src="pictures/zachem.jpg" alt="">
 	</section>
 
 	<section class="slide">
@@ -1364,12 +1689,45 @@
 		</ol>
 	</section>
 
-	<section class="slide">
-		<h2>Степень мастерства</h2>
-		<p>Чем больше ты мастер, тем больше сможешь копать вглубь</p>
+	<section class="slide center">
+		<br>
+		<br>
+		<h2>Степень мастерства прямо пропорциональна времени, которое можно потратить на работу вглубь</h2>
 	</section>
 
 
+
+	<section class="slide">
+		<h2>Полезные ссылки</h2>
+		<div><a href=""></a></div>
+		<div>
+			<a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators">
+				Про побитовые операторы на JS
+			</a>
+		</div>
+		<div>
+			<a href="http://gameprogrammingpatterns.com/contents.html">
+				Книга Game Programming Patterns из которой я многое вынес
+			</a>
+		</div>
+		<div>
+			<a href="http://qiao.github.io/PathFinding.js/visual/">
+				Интерактивная визуализация алгоритмов поиска пути в сетке
+			</a>
+		</div>
+		<div>
+			<a href="https://vk.com/fizmig">
+				FizMig. Та самая спецификация по всем игровым механикам Героев
+			</a>
+		</div>
+
+	</section>
+
+	<section class="slide center">
+		<h2>Демка Героев 3 в браузере</h2>
+		<h2><a href="http://homm.lekzd.ru/">http://homm.lekzd.ru/</a></h2>
+		<img src="pictures/qr-code.gif" style="height: 300px" alt="">
+	</section>
 
 	<section class="slide">
 		<h2 class="shout shrink">Вопросы</h2>
